@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вход — Dell Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div data-header=""></div>
+
+  <section class="auth">
+    <aside class="auth__aside">
+      <span class="watermark">welcome</span>
+      <span class="eyebrow">Dell Store</span>
+      <h2>Последние новости, произошедшие с нами</h2>
+      <p>Узнай о последних новостях и интересных акциях, которые мы делаем специально для Вас!</p>
+    </aside>
+
+    <div class="auth__panel">
+      <form class="auth__form form-light" data-form="login">
+        <h1>Войдите в свой аккаунт</h1>
+        <p class="muted">Введите данные, чтобы продолжить.</p>
+
+        <div class="form-error">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16h.01"/></svg>
+          Неправильный логин или пароль. Попробуйте ещё раз.
+        </div>
+
+        <div class="field"><label>Ваше имя</label><input type="text" placeholder="Введите имя" required /></div>
+        <div class="field"><label>Пароль</label><input type="password" placeholder="Введите пароль (демо: 4+ символа)" required /></div>
+
+        <button type="submit" class="btn btn--reverse" style="margin-top:6px"><span class="btn__label">Войти</span><span class="btn__icon">&rarr;</span></button>
+
+        <p class="auth__switch">Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+      </form>
+    </div>
+  </section>
+
+  <div data-footer></div>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
