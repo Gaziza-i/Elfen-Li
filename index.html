@@ -3,164 +3,207 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dell Store — Лучшие товары от компании Dell</title>
-  <meta name="description" content="Официальный партнёр Dell в России. Ноутбуки, персональные компьютеры, серверы, Dell EMC и запасные части по выгодным ценам." />
+  <title>Elfen lied — дизайнерский декор для интерьера</title>
+  <meta name="description" content="Elfen lied — магазин дизайнерского декора: напольные зеркала, торшеры и лампы, кресла и столы. Creating a great art." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <div data-header="home"></div>
+  <div data-header="catalog"></div>
 
-  <!-- Hero -->
+  <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="container hero__grid">
-      <div class="hero__copy">
-        <div class="hero__brand">Dell</div>
-        <span class="eyebrow">Новое поступление</span>
-        <h1 class="hero__title">Лучшие товары от компании Dell</h1>
-        <a class="btn" href="catalog.html">
-          <span class="btn__label">Подробнее</span>
-          <span class="btn__icon">&rarr;</span>
-        </a>
-        <div class="hero__scroll">Scroll to catalog
-          <svg width="14" height="30" viewBox="0 0 14 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 1v26M1 21l6 6 6-6"/></svg>
+      <!-- main product of the day -->
+      <div class="hero__main reveal">
+        <span class="hero__badge">товар дня</span>
+        <div class="hero__watermark">Benjamin<br>Moore</div>
+        <div class="hero__object">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2c-2 3-3 6 0 9 3-3 2-6 0-9zM12 11c-3-1-6 0-7 3 3 1 6 0 7-3zM12 11c3-1 6 0 7 3-3 1-6 0-7-3zM12 11v9M8 22h8"/></svg>
+        </div>
+        <div class="hero__foot">
+          <div class="hero__info">
+            <h1>Santa Trinita</h1>
+            <p>Функциональная дизайнерская лампа для создания максимально комфортного освещения.</p>
+            <div class="hero__price">150 000 ₽</div>
+          </div>
+          <a class="oval-btn" href="#catalog">Купить
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
         </div>
       </div>
-      <div class="hero__media">
-        <div class="hero__photo hero__photo--main">
-          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg></div>
+
+      <!-- two style panels -->
+      <div class="hero__side">
+        <div class="hero__panel hero__panel--pink reveal">
+          <span class="promo">Paint Here Glory</span>
+          <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M7 3v9M17 3v9M6 12h12l-1 4H7l-1-4zM8 16v5M16 16v5"/></svg></div>
+          <div class="hero__panel-foot"><span class="style">стиль</span><span class="num">02</span></div>
         </div>
-        <div class="hero__photo hero__photo--float">
-          <span class="promo-label">Выгодное предложение от Dell</span>
-          <div class="dots"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
+        <div class="hero__panel hero__panel--blue reveal">
+          <span class="promo">Blue Serenity</span>
+          <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M9 3h6l-1 4c2 2 2 8-2 14-4-6-4-12-2-14L9 3z"/></svg></div>
+          <div class="hero__panel-foot"><span class="style">стиль</span><span class="num">03</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Catalog preview -->
+  <!-- ============ CATEGORIES ============ -->
   <section class="section" id="catalog">
     <div class="container">
-      <div class="cat-grid">
-        <div class="cat-card cat-card__intro reveal">
-          <span class="eyebrow">Каталог</span>
-          <h2 class="h2">Каталог товаров от Dell</h2>
-          <p class="lead" style="margin:16px 0 26px">Наша компания является зарегистрированным и официальным партнёром Dell в России.</p>
-          <a class="btn" href="catalog.html"><span class="btn__label">В каталог</span><span class="btn__icon">&rarr;</span></a>
+      <h2 class="section-title reveal">Категории</h2>
+      <div class="cat-row">
+        <div class="cat-card reveal">
+          <div class="cat-card__blob">
+            <span class="tag-pill">new</span>
+            <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg></div>
+          </div>
+          <div class="cat-card__name">Напольные<br>зеркала</div>
+          <div class="cat-card__cta"><a class="round-btn round-btn--lime" href="#products" aria-label="Смотреть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
         </div>
-
-        <a class="cat-card reveal" href="laptops.html">
-          <span class="cat-card__num">01</span>
-          <span class="cat-card__media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg></span>
-          <span class="cat-card__count">105 товаров</span>
-          <span class="cat-card__name">Ноутбуки</span>
-        </a>
-        <a class="cat-card reveal" href="catalog.html">
-          <span class="cat-card__num">02</span>
-          <span class="cat-card__media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span>
-          <span class="cat-card__count">65 товаров</span>
-          <span class="cat-card__name">Персональные компьютеры</span>
-        </a>
-        <a class="cat-card reveal" href="catalog.html">
-          <span class="cat-card__num">03</span>
-          <span class="cat-card__media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="3" width="16" height="7" rx="1.5"/><rect x="4" y="14" width="16" height="7" rx="1.5"/><path d="M8 6.5h.01M8 17.5h.01"/></svg></span>
-          <span class="cat-card__count">13 товаров</span>
-          <span class="cat-card__name">Серверы</span>
-        </a>
-        <a class="cat-card reveal" href="catalog.html">
-          <span class="cat-card__num">04</span>
-          <span class="cat-card__media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></span>
-          <span class="cat-card__count">2345 товаров</span>
-          <span class="cat-card__name">Dell EMC</span>
-        </a>
-        <a class="cat-card reveal" href="catalog.html">
-          <span class="cat-card__num">05</span>
-          <span class="cat-card__media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 4l2 2-3 3 3 3-6 6-3-3-3 3-2-2 3-3-3-3 6-6 3 3 3-3z"/></svg></span>
-          <span class="cat-card__count">195 товаров</span>
-          <span class="cat-card__name">Запасные части к Dell EMC</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Advantages -->
-  <section class="section--tight">
-    <div class="advantages reveal">
-      <div class="advantages__inner">
-        <span class="watermark">best quality</span>
-        <div class="advantages__head">
-          <span class="eyebrow">Наши преимущества</span>
-          <p>Оптимизация мощностей (расходов, социальных выплат и т.п.) позволили компании на 4,7% понизить цены по сравнению с конкурентами.</p>
-          <a class="btn btn--reverse" href="index.html#contacts"><span class="btn__label">Оставить заявку</span><span class="btn__icon">&rarr;</span></a>
+        <div class="cat-card reveal">
+          <div class="cat-card__blob">
+            <span class="tag-pill">hit</span>
+            <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M8 3h8l2 6H6l2-6z"/><path d="M12 9v9M8 21h8"/></svg></div>
+          </div>
+          <div class="cat-card__name">Торшеры<br>и лампы</div>
+          <div class="cat-card__cta"><a class="round-btn" href="#products" aria-label="Смотреть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
         </div>
-        <div class="adv-grid">
-          <div class="adv-card">
-            <div class="adv-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
-            <h3>Самые выгодные и низкие цены</h3>
-            <p>В наличии широкий ассортимент, а также доступные цены на ноутбуки Dell.</p>
+        <div class="cat-card reveal">
+          <div class="cat-card__blob">
+            <span class="tag-pill">top</span>
+            <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M7 3v9M17 3v9M6 12h12l-1 4H7l-1-4zM8 16v5M16 16v5"/></svg></div>
           </div>
-          <div class="adv-card">
-            <div class="adv-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9 2.6.9-5.5-4-3.9L9.5 8 12 3z"/></svg></div>
-            <h3>Авторизованный сервисный центр DELL</h3>
-            <p>Сертифицированный сервисный центр по ремонту техники Dell в России и странах СНГ.</p>
+          <div class="cat-card__name">Кресла<br>и стулья</div>
+          <div class="cat-card__cta"><a class="round-btn" href="#products" aria-label="Смотреть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
+        </div>
+        <div class="cat-card reveal">
+          <div class="cat-card__blob">
+            <span class="tag-pill">new</span>
+            <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M3 8h18M5 8v12M19 8v12M3 8l3-4h12l3 4"/></svg></div>
           </div>
-          <div class="adv-card">
-            <div class="adv-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2 .8-3.6 2-4.5"/></svg></div>
-            <h3>Высокий уровень технической экспертизы</h3>
-            <p>Мы прошли аттестацию в виде тестирования, где показали высокий уровень знаний.</p>
-          </div>
-          <div class="adv-card">
-            <div class="adv-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div>
-            <h3>Официальный партнёр DELL</h3>
-            <p>Официальный поставщик продукции DELL в России и странах СНГ.</p>
-          </div>
+          <div class="cat-card__name">Столы<br>и тумбы</div>
+          <div class="cat-card__cta"><a class="round-btn" href="#products" aria-label="Смотреть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contacts -->
-  <section class="section contacts" id="contacts">
+  <!-- ============ PRODUCTS ============ -->
+  <section class="section" id="products" style="padding-top:10px">
     <div class="container">
-      <div class="contacts__grid">
-        <div class="contact-card reveal">
-          <span class="eyebrow">our contacts</span>
-          <h2 class="h2">Наши контакты</h2>
-          <p class="muted">Вы можете связаться с нашим онлайн-консультантом</p>
-          <div class="contact-list">
-            <div class="contact-item">
-              <span class="contact-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-              <div><div class="contact-item__label">Адрес</div><div class="contact-item__value">Москва, ул. 3-я Хорошевская, дом 2, строение 1</div></div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5l3-1 2 4-2 1a12 12 0 0 0 5 5l1-2 4 2-1 3a2 2 0 0 1-2 1A16 16 0 0 1 3 7a2 2 0 0 1 1-2z"/></svg></span>
-              <div><div class="contact-item__label">Телефон</div><div class="contact-item__value">+7 495 737-06-01<br>+7 495 737-06-01</div></div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
-              <div><div class="contact-item__label">E-mail</div><div class="contact-item__value">dell_ru@gmail.com</div></div>
-            </div>
+      <div class="catalog-bar reveal">
+        <button class="filter-toggle" data-filter-toggle>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          Фильтры
+        </button>
+        <span class="count">20 позиций в категории</span>
+      </div>
+
+      <!-- filters -->
+      <div class="filters reveal" id="filters" data-range>
+        <div>
+          <h4>Цена</h4>
+          <div class="price-inputs">
+            <div class="price-box"><span>от</span><strong data-out-min>67 000</strong></div>
+            <div class="price-box"><span>до</span><strong data-out-max>521 000</strong></div>
+          </div>
+          <input class="range" type="range" min="67000" max="521000" value="67000" data-range-min />
+          <input class="range" type="range" min="67000" max="521000" value="521000" data-range-max />
+        </div>
+        <div>
+          <h4>Цвета</h4>
+          <div class="colors">
+            <span class="color-chip"><i style="background:#7bd67b"></i>Зеленый <span class="n">580</span></span>
+            <span class="color-chip"><i style="background:#5b8fe0"></i>Синий <span class="n">1296</span></span>
+            <span class="color-chip"><i style="background:#f0a24b"></i>Оранжевый <span class="n">2340</span></span>
+            <span class="color-chip"><i style="background:#ec86bd"></i>Розовый <span class="n">656</span></span>
+            <span class="color-chip"><i style="background:#b3a2e0"></i>Лавандовый <span class="n">1</span></span>
+            <span class="color-chip"><i style="background:#a9d3ec"></i>Голубой <span class="n">113</span></span>
           </div>
         </div>
+      </div>
 
-        <div class="contact-card contact-card--accent reveal">
-          <h2 class="h2">Оставьте заявку</h2>
-          <p style="color:rgba(255,255,255,.7);margin-bottom:26px">Оставьте свой номер, и мы перезвоним Вам.</p>
-          <form data-form="callback">
-            <div class="field"><label>Ваше имя</label><input type="text" placeholder="Иван Иванов" required /></div>
-            <div class="field"><label>Номер телефона</label><input type="tel" placeholder="+7 900 000-00-00" required /></div>
-            <div class="field"><label>Комментарий</label><textarea placeholder="Ваш вопрос"></textarea></div>
-            <div class="form-actions">
-              <button type="button" class="btn-ghost" data-toast="Выберите файл для загрузки">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>
-                Загрузить файл
-              </button>
-              <button type="submit" class="btn btn--reverse"><span class="btn__label">Заказать</span><span class="btn__icon">&rarr;</span></button>
-            </div>
-          </form>
-        </div>
+      <!-- product grid -->
+      <div class="product-row" id="productGrid">
+        <article class="product-card reveal">
+          <div class="product-card__media"><span class="tag-pill">-15%</span><div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg></div></div>
+          <div class="product-card__name">Kristin</div>
+          <div class="product-card__kind">Зеркало напольное</div>
+          <div class="product-card__foot"><span class="product-card__price">150 000 ₽</span><button class="buy-tag" data-add-cart>Купить</button></div>
+        </article>
+        <article class="product-card reveal">
+          <div class="product-card__media"><div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg></div></div>
+          <div class="product-card__name">Arlene</div>
+          <div class="product-card__kind">Зеркало напольное</div>
+          <div class="product-card__foot"><span class="product-card__price">150 000 ₽</span><button class="buy-tag" data-add-cart>Купить</button></div>
+        </article>
+        <article class="product-card reveal">
+          <div class="product-card__media"><span class="tag-pill">new</span><div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg></div></div>
+          <div class="product-card__name">Colleen</div>
+          <div class="product-card__kind">Зеркало напольное</div>
+          <div class="product-card__foot"><span class="product-card__price">150 000 ₽</span><button class="buy-tag" data-add-cart>Купить</button></div>
+        </article>
+        <article class="product-card reveal">
+          <div class="product-card__media"><div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg></div></div>
+          <div class="product-card__name">Coppelia</div>
+          <div class="product-card__kind">Зеркало напольное</div>
+          <div class="product-card__foot"><span class="product-card__price">150 000 ₽</span><button class="buy-tag" data-add-cart>Купить</button></div>
+        </article>
+        <article class="product-card reveal">
+          <div class="product-card__media"><span class="tag-pill">hit</span><div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg></div></div>
+          <div class="product-card__name">Artemide</div>
+          <div class="product-card__kind">Зеркало напольное</div>
+          <div class="product-card__foot"><span class="product-card__price">150 000 ₽</span><button class="buy-tag" data-add-cart>Купить</button></div>
+        </article>
+      </div>
+
+      <div class="load-more">
+        <button class="oval-btn" data-load-more="#productGrid">Загрузить еще
+          <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RIBBON ============ -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon__band ribbon__band--2"><div class="ribbon__track"><span>creating a great art</span><span>creating a great art</span><span>creating a great art</span><span>creating a great art</span></div></div>
+    <div class="ribbon__band"><div class="ribbon__track"><span>creating a great art</span><span>creating a great art</span><span>creating a great art</span><span>creating a great art</span></div></div>
+  </div>
+
+  <!-- ============ BLOG ============ -->
+  <section class="section" id="blog">
+    <div class="container">
+      <h2 class="section-title reveal">Блог</h2>
+      <div class="blog-grid">
+        <article class="blog-card reveal">
+          <div class="blog-card__media"><span class="num">01</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M7 3v9M17 3v9M6 12h12l-1 4H7l-1-4zM8 16v5M16 16v5"/></svg></div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta"><span>14 Января 2023</span><span>· 3 мин</span></div>
+            <h3 class="blog-card__title">новая коллекция кресел</h3>
+            <div class="blog-card__author">Laura Busche</div>
+          </div>
+        </article>
+        <article class="blog-card reveal">
+          <div class="blog-card__media"><span class="num">02</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M8 3h8l2 6H6l2-6z"/><path d="M12 9v9M8 21h8"/></svg></div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta"><span>14 Января 2023</span><span>· 3 мин</span></div>
+            <h3 class="blog-card__title">тренды в освещении 2023</h3>
+            <div class="blog-card__author">Laura Busche</div>
+          </div>
+        </article>
+        <article class="blog-card reveal">
+          <div class="blog-card__media"><span class="num">03</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 8h18M5 8v12M19 8v12M3 8l3-4h12l3 4"/></svg></div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta"><span>14 Января 2023</span><span>· 3 мин</span></div>
+            <h3 class="blog-card__title">как выбрать шкаф в спальню</h3>
+            <div class="blog-card__author">Laura Busche</div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
