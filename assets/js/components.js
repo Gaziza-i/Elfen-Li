@@ -38,7 +38,7 @@
         '<div class="icon-cluster">' +
           '<a href="index.html#catalog" aria-label="Избранное">' + ICON.heart + '</a>' +
           '<a href="index.html#footer" aria-label="Профиль">' + ICON.user + '</a>' +
-          '<a class="badge" href="index.html#catalog" aria-label="Корзина">' + ICON.bag + '<span data-cart-count>3</span></a>' +
+          '<button class="badge" data-open-cart aria-label="Корзина">' + ICON.bag + '<span data-cart-count>0</span></button>' +
           '<button class="burger" id="burger" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
         '</div>' +
       '</div>' +
@@ -73,13 +73,57 @@
     '</div></footer>';
   }
 
-  window.ElfenUI = { ICON: ICON };
+  var mirrorSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg>';
+
+  function modalsHTML() {
+    return '' +
+    '<div class="overlay" data-overlay></div>' +
+    // product quick-view
+    '<div class="modal" id="quickview" role="dialog" aria-modal="true">' +
+      '<div class="modal__grid">' +
+        '<div class="modal__media"><div class="obj">' + mirrorSVG + '</div></div>' +
+        '<div class="modal__body">' +
+          '<button class="modal__close" data-close aria-label="закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+          '<div class="modal__collection">коллекция</div>' +
+          '<h3 class="modal__title" data-qv-name>Santa Trinita</h3>' +
+          '<div class="modal__art" data-qv-art>Арт. GNM007</div>' +
+          '<div class="modal__props">' +
+            '<div class="modal__prop"><span>Цвет:</span><strong data-qv-color>Лаванда</strong></div>' +
+            '<div class="modal__prop"><span>Высота:</span><strong>60 см</strong></div>' +
+          '</div>' +
+          '<p class="modal__desc">Функциональная дизайнерская лампа для создания максимально комфортного освещения.</p>' +
+          '<div class="modal__buy">' +
+            '<span class="modal__price" data-qv-price>150 000 ₽</span>' +
+            '<button class="buy-tag" data-qv-buy>Купить</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    // cart drawer
+    '<aside class="drawer" id="cart" aria-label="Корзина">' +
+      '<div class="drawer__head"><h3>Ваш заказ</h3>' +
+        '<button class="modal__close" data-close aria-label="закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+      '</div>' +
+      '<div class="drawer__body" data-cart-list></div>' +
+      '<form class="checkout" data-checkout>' +
+        '<div class="total"><span>Итого</span><b data-cart-total>0 ₽</b></div>' +
+        '<h4>Оформление заказа</h4>' +
+        '<div class="field"><input type="text" placeholder="Ваше имя" required /></div>' +
+        '<div class="field"><input type="text" placeholder="Адрес" required /></div>' +
+        '<div class="field"><input type="tel" placeholder="Телефон" required /></div>' +
+        '<button type="submit" class="btn-solid">Заказать</button>' +
+      '</form>' +
+    '</aside>';
+  }
+
+  window.ElfenUI = { ICON: ICON, mirrorSVG: mirrorSVG };
 
   document.addEventListener("DOMContentLoaded", function () {
     var h = document.querySelector("[data-header]");
     if (h) h.outerHTML = headerHTML(h.getAttribute("data-header"));
     var f = document.querySelector("[data-footer]");
     if (f) f.outerHTML = footerHTML();
+    document.body.insertAdjacentHTML("beforeend", modalsHTML());
 
     var burger = document.getElementById("burger");
     var mnav = document.getElementById("mainNav");
