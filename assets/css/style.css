@@ -335,7 +335,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
    Footer
    ============================================================ */
 .site-footer { background: #2c2447; color: #fff; border-radius: var(--radius-xl) var(--radius-xl) 0 0; margin-top: 60px; }
-.site-footer__inner { padding: 70px 0 40px; }
+.site-footer__inner { padding-top: 70px; padding-bottom: 40px; }
 .site-footer__top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,.14); }
 .footer-brand .logo { font-size: 34px; margin-bottom: 16px; display: inline-block; }
 .footer-brand p { color: rgba(255,255,255,.6); font-size: 14px; max-width: 30ch; }
