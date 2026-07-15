@@ -106,6 +106,12 @@
         setText("[data-qv-art]", meta.art);
         setText("[data-qv-color]", meta.color);
         setText("[data-qv-price]", money(pr));
+        // sync modal image with the product (falls back to SVG if missing)
+        var mObj = document.querySelector("#quickview .modal__media .obj");
+        if (mObj) {
+          mObj.classList.remove("has-img"); mObj.style.backgroundImage = "";
+          if (window.__elfenTryImg) window.__elfenTryImg(mObj, "assets/img/product-" + nm.toLowerCase().trim() + ".png");
+        }
         open(quickview);
         return;
       }
@@ -176,6 +182,38 @@
         showToast("Загружены ещё товары");
       });
     });
+
+    /* ---------- Real images (progressive enhancement) ---------- */
+    function slug(s) {
+      return s.toLowerCase().trim().replace(/ё/g, "e")
+        .replace(/[^a-zа-я0-9]+/gi, "-").replace(/^-|-$/g, "");
+    }
+    function tryImg(el, src) {
+      if (!el || !src) return;
+      var im = new Image();
+      im.onload = function () { el.classList.add("has-img"); el.style.backgroundImage = 'url("' + src + '")'; };
+      im.onerror = function () { el.classList.remove("has-img"); el.style.backgroundImage = ""; };
+      im.src = src;
+    }
+    // explicit data-img (hero object, panels, …)
+    document.querySelectorAll("[data-img]").forEach(function (el) { tryImg(el, el.getAttribute("data-img")); });
+    // products: assets/img/product-<name>.png
+    document.querySelectorAll(".product-card").forEach(function (c) {
+      var n = c.querySelector(".product-card__name"), o = c.querySelector(".obj");
+      if (n && o) tryImg(o, "assets/img/product-" + slug(n.textContent) + ".png");
+    });
+    // categories (in order): mirrors, lamps, chairs, tables
+    var catMap = ["cat-mirrors", "cat-lamps", "cat-chairs", "cat-tables"];
+    document.querySelectorAll(".cat-row .cat-card").forEach(function (c, i) {
+      var o = c.querySelector(".obj");
+      if (o && catMap[i]) tryImg(o, "assets/img/" + catMap[i] + ".png");
+    });
+    // blog: assets/img/blog-01.png …
+    document.querySelectorAll(".blog-grid .blog-card").forEach(function (c, i) {
+      var m = c.querySelector(".blog-card__media");
+      if (m) tryImg(m, "assets/img/blog-0" + (i + 1) + ".png");
+    });
+    window.__elfenTryImg = tryImg; // reused by quick-view
 
     /* ---------- Reveal ---------- */
     var io;

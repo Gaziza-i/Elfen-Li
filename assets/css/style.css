@@ -448,6 +448,16 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .btn-solid:hover { background: var(--pink-strong); }
 .cart-empty { text-align: center; color: var(--ink-soft); padding: 40px 0; }
 
+/* ============================================================
+   Real images (progressive enhancement)
+   Drop files into assets/img/ with the names from assets/img/README.md
+   and they replace the SVG placeholders automatically.
+   ============================================================ */
+.has-img { background-size: contain; background-position: center; background-repeat: no-repeat; }
+.has-img > svg { display: none; }
+.blog-card__media.has-img { background-size: cover; }
+.blog-card__media.has-img > svg { display: none; }
+
 /* ---------- reveal ---------- */
 .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
 .js .reveal.is-visible { opacity: 1; transform: none; }
