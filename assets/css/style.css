@@ -296,21 +296,20 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 /* ============================================================
    Ribbon
    ============================================================ */
-.ribbon { position: relative; margin: 44px 0; height: 210px; overflow: hidden; }
+/* Две пересекающиеся ленты, как в макете: верхняя #cbb6ff +5°, нижняя #aeceff -2° */
+.ribbon { position: relative; margin: 40px 0; height: 230px; overflow: hidden; }
 .ribbon__band {
-  position: absolute; left: 50%; width: 132%;
-  transform: translateX(-50%) rotate(-5deg);
-  background: var(--blue); padding: 15px 0;
-  display: flex; overflow: hidden;
-  top: 108px;
+  position: absolute; left: 50%; width: 150%; height: 66px;
+  display: flex; align-items: center; overflow: hidden;
 }
-.ribbon__band--2 { background: var(--pink); top: 30px; }
+.ribbon__band--top { top: 84px; transform: translateX(-50%) rotate(5deg); background: #cbb6ff; opacity: .85; }
+.ribbon__band--bottom { top: 100px; transform: translateX(-50%) rotate(-2deg); background: #aeceff; }
 .ribbon__track { display: flex; gap: 40px; align-items: center; white-space: nowrap; animation: marquee 26s linear infinite; will-change: transform; }
-.ribbon__band--2 .ribbon__track { animation-duration: 32s; animation-direction: reverse; }
+.ribbon__band--bottom .ribbon__track { animation-duration: 32s; animation-direction: reverse; }
 .ribbon__track span {
   flex-shrink: 0; white-space: nowrap;
-  font-family: var(--serif); font-size: 22px; font-weight: 800; font-style: italic;
-  text-transform: uppercase; color: #fff; letter-spacing: .04em; display: inline-flex; align-items: center; gap: 40px;
+  font-family: var(--serif); font-size: 22px; font-weight: 600; font-style: italic;
+  text-transform: uppercase; color: #fff; letter-spacing: .06em; display: inline-flex; align-items: center; gap: 40px;
 }
 .ribbon__track span::after { content: "✦"; font-size: 14px; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
