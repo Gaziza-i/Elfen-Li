@@ -50,43 +50,80 @@
     </div>
   </section>
 
-  <!-- ============ CATEGORIES ============ -->
-  <section class="section" id="catalog">
-    <div class="container">
-      <h2 class="section-title reveal">Категории</h2>
-      <div class="cat-row">
-        <div class="cat-card reveal">
-          <div class="cat-card__blob">
-            <span class="tag-pill">new</span>
-            <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg></div>
-          </div>
-          <div class="cat-card__name">Напольные<br>зеркала</div>
-          <div class="cat-card__cta"><a class="round-btn round-btn--lime" href="#products" aria-label="Смотреть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
-        </div>
-        <div class="cat-card reveal">
-          <div class="cat-card__blob">
-            <span class="tag-pill">hit</span>
-            <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M8 3h8l2 6H6l2-6z"/><path d="M12 9v9M8 21h8"/></svg></div>
-          </div>
-          <div class="cat-card__name">Торшеры<br>и лампы</div>
-          <div class="cat-card__cta"><a class="round-btn" href="#products" aria-label="Смотреть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
-        </div>
-        <div class="cat-card reveal">
-          <div class="cat-card__blob">
-            <span class="tag-pill">top</span>
-            <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M7 3v9M17 3v9M6 12h12l-1 4H7l-1-4zM8 16v5M16 16v5"/></svg></div>
-          </div>
-          <div class="cat-card__name">Кресла<br>и стулья</div>
-          <div class="cat-card__cta"><a class="round-btn" href="#products" aria-label="Смотреть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
-        </div>
-        <div class="cat-card reveal">
-          <div class="cat-card__blob">
-            <span class="tag-pill">new</span>
-            <div class="obj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M3 8h18M5 8v12M19 8v12M3 8l3-4h12l3 4"/></svg></div>
-          </div>
-          <div class="cat-card__name">Столы<br>и тумбы</div>
-          <div class="cat-card__cta"><a class="round-btn" href="#products" aria-label="Смотреть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
-        </div>
+  <!-- ============ CATEGORIES ============
+       Точные значения из Figma (node 2468:2500). Не хватает 3 ассетов
+       (форма-подложка карточки 388x461.8, 2 варианта иконки круглой
+       кнопки 101x101) — заблокирован доступ к figma.com, см.
+       assets/img/README.md. Число "4 шт" на бейдже — как в макете,
+       одинаково на всех 4 карточках (не выдумано). -->
+  <section class="figcat" id="catalog">
+    <div class="figcat__wrap">
+      <h2 class="figcat__title reveal">категории</h2>
+      <div class="figcat__row">
+        <a class="figcat__card figcat__card--w428" href="#products">
+          <span class="figcat__shape" data-img="assets/img/cat-card-shape.png"></span>
+          <span class="figcat__name">напольные<br>зеркала</span>
+          <span class="figcat__image" style="left:85px;top:112px;width:231px;height:248px">
+            <img src="assets/img/cat-mirrors.png" alt="Напольные зеркала" />
+          </span>
+          <span class="figcat__badge">
+            <span class="figcat__badge-ellipse" data-img="assets/img/cat-badge-ellipse.png"></span>
+            <span class="figcat__badge-num">4</span>
+            <span class="figcat__badge-unit">шт</span>
+          </span>
+          <span class="figcat__play" data-img="assets/img/cat-btn-a.png">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <span class="figcat__ring" data-ring aria-hidden="true"></span>
+        </a>
+        <a class="figcat__card figcat__card--w428" href="#products">
+          <span class="figcat__shape" data-img="assets/img/cat-card-shape.png"></span>
+          <span class="figcat__name">торшеры<br>и лампы</span>
+          <span class="figcat__image" style="left:86px;top:112px;width:231px;height:248px">
+            <img src="assets/img/cat-lamps.png" alt="Торшеры и лампы" />
+          </span>
+          <span class="figcat__badge">
+            <span class="figcat__badge-ellipse" data-img="assets/img/cat-badge-ellipse.png"></span>
+            <span class="figcat__badge-num">4</span>
+            <span class="figcat__badge-unit">шт</span>
+          </span>
+          <span class="figcat__play" data-img="assets/img/cat-btn-a.png">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <span class="figcat__ring" data-ring aria-hidden="true"></span>
+        </a>
+        <a class="figcat__card figcat__card--w427" href="#products">
+          <span class="figcat__shape" data-img="assets/img/cat-card-shape.png"></span>
+          <span class="figcat__name">кресла<br>и стулья</span>
+          <span class="figcat__image" style="left:84px;top:118px;width:231px;height:248px">
+            <img src="assets/img/cat-chairs.png" alt="Кресла и стулья" />
+          </span>
+          <span class="figcat__badge">
+            <span class="figcat__badge-ellipse" data-img="assets/img/cat-badge-ellipse.png"></span>
+            <span class="figcat__badge-num">4</span>
+            <span class="figcat__badge-unit">шт</span>
+          </span>
+          <span class="figcat__play" data-img="assets/img/cat-btn-b.png">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <span class="figcat__ring" data-ring aria-hidden="true"></span>
+        </a>
+        <a class="figcat__card figcat__card--w427" href="#products">
+          <span class="figcat__shape" data-img="assets/img/cat-card-shape.png"></span>
+          <span class="figcat__name">столы<br>и тумбы</span>
+          <span class="figcat__image" style="left:83px;top:126px;width:231px;height:248px">
+            <img src="assets/img/cat-tables.png" alt="Столы и тумбы" />
+          </span>
+          <span class="figcat__badge">
+            <span class="figcat__badge-ellipse" data-img="assets/img/cat-badge-ellipse.png"></span>
+            <span class="figcat__badge-num">4</span>
+            <span class="figcat__badge-unit">шт</span>
+          </span>
+          <span class="figcat__play" data-img="assets/img/cat-btn-b.png">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <span class="figcat__ring" data-ring aria-hidden="true"></span>
+        </a>
       </div>
     </div>
   </section>
