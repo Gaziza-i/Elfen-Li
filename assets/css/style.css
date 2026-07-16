@@ -4,17 +4,24 @@
    ============================================================ */
 
 /* Шрифты из макета (drop-in): положи файлы в assets/fonts/ — см. assets/fonts/README.md.
-   Пока файлов нет, используются фолбэки: Poppins вместо Euclid, Playfair вместо Floreste. */
+   .otf/.ttf работают напрямую, конвертация в woff2 не обязательна (просто
+   отдаётся чуть тяжелее). Пока файлов нет — фолбэки: Poppins вместо Euclid,
+   Playfair вместо Floreste. Отсутствующие файлы в src просто пропускаются
+   браузером без ошибок. */
 @font-face {
   font-family: "Euclid Circular A";
   src: url("../fonts/EuclidCircularA-Medium.woff2") format("woff2"),
-       url("../fonts/EuclidCircularA-Medium.woff") format("woff");
+       url("../fonts/EuclidCircularA-Medium.woff") format("woff"),
+       url("../fonts/EuclidCircularA-Medium.otf") format("opentype"),
+       url("../fonts/EuclidCircularA-Medium.ttf") format("truetype");
   font-weight: 500; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: "Floreste";
   src: url("../fonts/Floreste.woff2") format("woff2"),
-       url("../fonts/Floreste.woff") format("woff");
+       url("../fonts/Floreste.woff") format("woff"),
+       url("../fonts/Floreste.otf") format("opentype"),
+       url("../fonts/Floreste.ttf") format("truetype");
   font-weight: 400; font-style: normal; font-display: swap;
 }
 
