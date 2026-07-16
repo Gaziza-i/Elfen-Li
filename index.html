@@ -15,38 +15,37 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="container hero__grid">
-      <!-- main product of the day -->
+    <div class="hero__row">
+      <!-- main product of the day: full-bleed purple, no radius -->
       <div class="hero__main reveal">
         <span class="hero__badge">товар дня</span>
-        <div class="hero__watermark">Benjamin<br>Moore</div>
+        <div class="hero__watermark">Benjamin Moore</div>
         <div class="hero__object" data-img="assets/img/hero-santa-trinita.png">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2c-2 3-3 6 0 9 3-3 2-6 0-9zM12 11c-3-1-6 0-7 3 3 1 6 0 7-3zM12 11c3-1 6 0 7 3-3 1-6 0-7-3zM12 11v9M8 22h8"/></svg>
         </div>
-        <div class="hero__foot">
-          <div class="hero__info">
-            <h1>Santa Trinita</h1>
-            <p>Функциональная дизайнерская лампа для создания максимально комфортного освещения.</p>
-            <div class="hero__price">150 000 ₽</div>
-          </div>
-          <a class="oval-btn" href="#catalog">Купить
-            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
+        <div class="hero__info">
+          <h1>Santa Trinita</h1>
+          <p>Функциональная дизайнерская лампа для создания максимально комфортного освещения</p>
+          <div class="hero__divider"></div>
+          <div class="hero__price">150 000<span>₽</span></div>
         </div>
+        <a class="hero__buy" href="#catalog">
+          <span class="hero__buy-blob"></span>
+          <span class="hero__buy-content">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h15l-1.5 9h-12z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 6L5 3H2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>
+            Купить
+          </span>
+        </a>
       </div>
 
-      <!-- two style panels -->
-      <div class="hero__side">
-        <div class="hero__panel hero__panel--pink reveal">
-          <span class="promo">Paint Here Glory</span>
-          <div class="obj" data-img="assets/img/hero-style-02.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M7 3v9M17 3v9M6 12h12l-1 4H7l-1-4zM8 16v5M16 16v5"/></svg></div>
-          <div class="hero__panel-foot"><span class="style">стиль</span><span class="num">02</span></div>
-        </div>
-        <div class="hero__panel hero__panel--blue reveal">
-          <span class="promo">Blue Serenity</span>
-          <div class="obj" data-img="assets/img/hero-style-03.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M3 8h18M5 8v12M19 8v12M3 8l3-4h12l3 4"/></svg></div>
-          <div class="hero__panel-foot"><span class="style">стиль</span><span class="num">03</span></div>
-        </div>
+      <!-- two rounded style panels floating right -->
+      <div class="hero__panel hero__panel--pink reveal">
+        <div class="obj" data-img="assets/img/hero-style-02.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M7 3v9M17 3v9M6 12h12l-1 4H7l-1-4zM8 16v5M16 16v5"/></svg></div>
+        <div class="hero__panel-foot"><span class="slide">слайд</span><span class="num">02</span></div>
+      </div>
+      <div class="hero__panel hero__panel--blue reveal">
+        <div class="obj" data-img="assets/img/hero-style-03.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M3 8h18M5 8v12M19 8v12M3 8l3-4h12l3 4"/></svg></div>
+        <div class="hero__panel-foot"><span class="slide">слайд</span><span class="num">03</span></div>
       </div>
     </div>
   </section>

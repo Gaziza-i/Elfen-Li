@@ -204,46 +204,74 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .burger { display: none; }
 
 /* ============================================================
-   Hero
+   Hero — pixel-matched to Figma (frame "1", 1900x1058)
+   Exact colors from design: purple #ae97e8, pink #fa8fef,
+   blue #aecfff, lime #d9ff5a
    ============================================================ */
-.hero { padding: 20px 0 40px; }
-.hero__grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 26px; }
+.hero { background: #ae97e8; overflow: hidden; }
+.hero__row {
+  display: flex; align-items: stretch; gap: 22px;
+  padding: 24px 48px 24px 0; min-height: 760px;
+}
 
+/* main panel bleeds to the left viewport edge, no radius, flat purple */
 .hero__main {
-  position: relative; overflow: hidden;
-  background: linear-gradient(160deg, #b8a9e6, #a693dc);
-  border-radius: var(--radius-lg);
-  padding: 34px 40px 40px; min-height: 620px;
-  display: flex; flex-direction: column;
+  flex: 1 1 auto; min-width: 0; position: relative;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 28px 0 32px 48px;
 }
+.hero__badge { font-size: 15px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: #d9ff5a; position: relative; z-index: 2; }
 .hero__watermark {
-  position: absolute; top: 34%; left: 50%; transform: translate(-50%, -50%);
-  font-family: var(--serif); font-weight: 800; font-style: italic;
-  font-size: clamp(60px, 8vw, 128px); line-height: .9; text-align: center;
-  color: rgba(255,255,255,.22); white-space: nowrap; pointer-events: none; user-select: none;
+  position: absolute; top: 42%; left: 0; right: 0; transform: translateY(-50%);
+  font-family: var(--num); font-weight: 400;
+  font-size: clamp(64px, 11vw, 180px); line-height: .9; text-align: center;
+  color: rgba(203, 182, 255, 0.6); white-space: nowrap; pointer-events: none; user-select: none; z-index: 0;
 }
-.hero__badge { font-size: 13px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--ink); position: relative; z-index: 2; }
-.hero__object { flex: 1; display: grid; place-items: center; position: relative; z-index: 1; padding: 20px 0; }
-.hero__object svg { width: 240px; height: 240px; color: #d9cdf3; filter: drop-shadow(0 30px 40px rgba(44,30,80,.3)); }
-.hero__foot { position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.hero__info { max-width: 360px; }
-.hero__info h1 { font-family: var(--serif); font-size: clamp(30px, 3.4vw, 46px); font-weight: 800; margin-bottom: 12px; }
-.hero__info p { font-size: 15px; color: var(--ink-soft); margin-bottom: 16px; }
-.hero__price { font-size: 24px; font-weight: 800; font-family: var(--serif); }
+.hero__object { flex: 1; display: grid; place-items: center; position: relative; z-index: 1; padding: 10px 0; }
+.hero__object svg { width: 230px; height: 230px; color: #d9cdf3; filter: drop-shadow(0 30px 40px rgba(44,30,80,.3)); }
 
-.hero__side { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
-.hero__panel {
-  position: relative; overflow: hidden; border-radius: var(--radius-lg);
-  padding: 26px; display: flex; flex-direction: column; min-height: 620px;
+.hero__info { position: relative; z-index: 2; max-width: 340px; }
+.hero__info h1 { font-family: var(--display); font-size: 28px; font-weight: 500; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+.hero__info p { font-size: 18px; line-height: 1.35; color: #fff; margin: 0; }
+.hero__divider { height: 1px; background: rgba(255,255,255,.35); margin: 20px 0 18px; max-width: 274px; }
+.hero__price { font-family: var(--num); font-size: 40px; font-weight: 400; letter-spacing: .04em; color: #d9ff5a; display: flex; align-items: baseline; gap: 6px; }
+.hero__price span { font-family: var(--display); font-size: 20px; font-weight: 400; }
+
+/* buy button: organic "blob" of two rotated ellipses behind the label, as in the design */
+.hero__buy {
+  position: absolute; right: 6%; bottom: 6%; z-index: 2;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 210px; height: 96px;
 }
-.hero__panel--pink { background: linear-gradient(170deg, #f4b4d8, #ec86bd); }
-.hero__panel--blue { background: linear-gradient(170deg, #b9dcf1, #97c8e8); }
-.hero__panel .obj { flex: 1; }
-.hero__panel .obj svg { max-width: 170px; }
-.hero__panel-foot { display: flex; align-items: flex-end; justify-content: space-between; color: #fff; }
-.hero__panel-foot .style { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; opacity: .9; }
-.hero__panel-foot .num { font-family: var(--num); font-size: 34px; font-weight: 400; letter-spacing: .04em; }
-.hero__panel .promo { color: #fff; font-family: var(--serif); font-size: 20px; font-weight: 700; margin-bottom: auto; max-width: 12ch; }
+.hero__buy-blob { position: absolute; inset: 0; }
+.hero__buy-blob::before, .hero__buy-blob::after {
+  content: ""; position: absolute; inset: 8% 0; border-radius: 50%;
+  background: rgba(255,255,255,.16); transition: background .25s ease;
+}
+.hero__buy-blob::before { transform: rotate(-13deg) scaleX(1.28); }
+.hero__buy-blob::after { transform: rotate(-2deg) scaleX(1.2); background: rgba(255,255,255,.22); }
+.hero__buy:hover .hero__buy-blob::before,
+.hero__buy:hover .hero__buy-blob::after { background: rgba(255,255,255,.32); }
+.hero__buy-content {
+  position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px;
+  color: #fff; font-family: var(--display); font-size: 20px; font-weight: 500;
+}
+.hero__buy-content svg { width: 22px; height: 22px; }
+
+/* side style panels: rounded, floating, exact figma colors */
+.hero__panel {
+  flex: 0 0 clamp(220px, 18vw, 300px);
+  position: relative; overflow: hidden; border-radius: 40px;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+  padding: 26px 20px 34px;
+}
+.hero__panel--pink { background: #fa8fef; }
+.hero__panel--blue { background: #aecfff; }
+.hero__panel .obj { flex: 1; width: 100%; display: grid; place-items: center; }
+.hero__panel .obj svg { max-width: 62%; max-height: 62%; }
+.hero__panel-foot { display: flex; flex-direction: column; align-items: center; gap: 12px; color: #fff; text-align: center; }
+.hero__panel-foot .slide { font-family: var(--display); font-size: 15px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.hero__panel-foot .num { font-family: var(--num); font-size: 40px; font-weight: 400; letter-spacing: .04em; }
 
 /* ============================================================
    Categories
@@ -507,9 +535,14 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 }
 @media (max-width: 1000px) {
   :root { --gutter: 24px; }
-  .hero__grid { grid-template-columns: 1fr; }
-  .hero__main { min-height: 480px; }
-  .hero__panel { min-height: 360px; }
+  .hero__row { flex-wrap: wrap; padding: 20px var(--gutter); min-height: 0; }
+  .hero__main {
+    flex: 1 1 100%; padding: 30px 0; min-height: 460px;
+    justify-content: flex-start; gap: 24px;
+  }
+  .hero__object { min-height: 340px; }
+  .hero__buy { position: static; align-self: flex-end; margin-top: 4px; }
+  .hero__panel { flex: 1 1 calc(50% - 11px); min-height: 320px; }
   .main-nav { display: none; }
   .burger { display: grid; }
   .search-box { min-width: 0; }
@@ -525,12 +558,13 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 }
 @media (max-width: 760px) {
   .product-row { grid-template-columns: repeat(2, 1fr); }
-  .hero__side { grid-template-columns: 1fr 1fr; }
   .search-box input { display: none; }
   .search-box { padding: 12px; }
 }
 @media (max-width: 520px) {
-  .cat-row, .product-row, .hero__side { grid-template-columns: 1fr; }
+  .cat-row, .product-row { grid-template-columns: 1fr; }
+  .hero__panel { flex: 1 1 100%; }
+  .hero__buy { align-self: center; }
   .blog-card { flex-direction: column; min-height: 0; }
   .blog-card__media { width: 100%; align-self: auto; min-height: 200px; order: -1; }
   .blog-card__title { margin: 12px 0; }
