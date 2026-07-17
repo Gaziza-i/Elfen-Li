@@ -269,17 +269,22 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .hero__panel {
   flex: 0 0 clamp(220px, 18vw, 300px);
   position: relative; overflow: hidden; border-radius: 40px;
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
   padding: 26px 20px 34px;
 }
 .hero__panel--pink { background: #fa8fef; }
 .hero__panel--blue { background: #aecfff; }
-/* figma: object occupies only ~34% of panel height (~76% width), not the full panel —
-   fixed viewport-relative height avoids percentage-of-auto-height issues when the
-   row wraps on tablet/mobile */
-.hero__panel .obj { flex: 0 0 auto; height: clamp(140px, 30vh, 260px); width: 100%; display: grid; place-items: center; }
+/* figma: object is vertically centered in the panel, independent of the
+   slide number pinned to the bottom — fixed viewport-relative height avoids
+   percentage-of-auto-height issues when the row wraps on tablet/mobile */
+.hero__panel .obj {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  height: clamp(140px, 30vh, 260px); width: 100%; display: grid; place-items: center;
+}
 .hero__panel .obj svg { max-width: 76%; max-height: 100%; }
-.hero__panel-foot { display: flex; flex-direction: column; align-items: center; gap: 12px; color: #fff; text-align: center; }
+.hero__panel-foot {
+  position: absolute; left: 20px; right: 20px; bottom: 34px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px; color: #fff; text-align: center;
+}
 .hero__panel-foot .slide { font-family: var(--display); font-size: 15px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: rgba(255,255,255,.6); }
 .hero__panel-foot .num { font-family: var(--num); font-size: 40px; font-weight: 400; letter-spacing: .04em; }
 
