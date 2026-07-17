@@ -529,6 +529,44 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .btn-solid:hover { background: var(--pink-strong); }
 .cart-empty { text-align: center; color: var(--ink-soft); padding: 40px 0; }
 
+/* login modal — figma node 2576:4668 */
+.login-modal {
+  position: fixed; z-index: 101; left: 50%; top: 50%;
+  transform: translate(-50%, -46%) scale(.96);
+  width: min(360px, calc(100vw - 32px));
+  padding: 22px 20px 24px; border-radius: 20px;
+  background: rgba(51, 32, 101, .18); backdrop-filter: blur(100px); -webkit-backdrop-filter: blur(100px);
+  box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease, transform .3s ease;
+}
+.login-modal.open { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+.login-modal__close {
+  position: absolute; top: 20px; right: 20px; width: 22px; height: 22px;
+  display: grid; place-items: center; color: #fff;
+}
+.login-modal__close svg { width: 18px; height: 18px; }
+.login-modal__title { font-size: 15px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin: 0 0 60px; }
+.login-modal__form { display: flex; flex-direction: column; gap: 40px; }
+.login-modal__field { display: flex; flex-direction: column; gap: 15px; }
+.login-modal__field label { font-size: 15px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: #fff; }
+.login-modal__field input {
+  border: none; border-bottom: 1.5px solid var(--lime); background: transparent;
+  padding: 0 0 8px; font-family: inherit; font-size: 15px; color: #fff;
+}
+.login-modal__field input::placeholder { color: rgba(255,255,255,.5); }
+.login-modal__field input:focus { outline: none; }
+.login-modal__submit {
+  position: relative; width: 119px; height: 85px;
+  display: grid; place-items: center; color: #fff; font-size: 16px; font-weight: 500;
+}
+.login-modal__oval {
+  position: absolute; inset: 0; margin: auto; width: 137px; height: 109px;
+  border: 1.5px solid var(--lime); border-radius: 50%; transform: rotate(-15deg);
+}
+.login-modal__foot { display: flex; align-items: center; gap: 12px; margin-top: 34px; font-size: 12px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; color: #fff; }
+.login-modal__foot a { display: inline-flex; align-items: center; gap: 8px; color: #fff; }
+.login-modal__foot a svg { width: 16px; height: 16px; }
+
 /* ============================================================
    Real images (progressive enhancement)
    Drop files into assets/img/ with the names from assets/img/README.md
