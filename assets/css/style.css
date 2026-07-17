@@ -101,14 +101,15 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .round-btn {
   width: 64px; height: 64px; border-radius: 50%;
   display: grid; place-items: center;
-  border: 1.5px solid var(--ink);
-  color: var(--ink); background: transparent;
+  border: 1.5px solid var(--lime);
+  color: var(--lime); background: transparent;
   transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
 }
 .round-btn svg { width: 22px; height: 22px; }
-.round-btn:hover { background: var(--ink); color: #fff; transform: translateY(-3px); }
-.round-btn--lime { background: var(--lime); border-color: var(--lime); color: var(--lime-ink); }
-.round-btn--lime:hover { background: var(--lime); color: var(--lime-ink); box-shadow: 0 10px 26px rgba(201, 242, 76, .5); }
+.round-btn:hover, .round-btn:focus-visible {
+  background: var(--lime); color: var(--lime-ink); transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(201, 242, 76, .5);
+}
 
 .oval-btn {
   display: inline-flex; align-items: center; gap: 22px;
