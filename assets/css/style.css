@@ -128,6 +128,26 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .oval-btn:hover .dot { transform: rotate(45deg); }
 .oval-btn .dot svg { width: 18px; height: 18px; }
 
+/* "Загрузить ещё" — confirmed via Figma (node 2468:2845): same reusable
+   rotated lime-outline ellipse motif as hero's "Купить" (imgEllipse2,
+   rotate -13deg), arrow-down icon (vuesax/linear/arrow-down) */
+.oval-btn--lime {
+  position: relative; border: none; padding: 12px 40px; gap: 14px;
+  color: #fff; overflow: visible;
+}
+.oval-btn--lime::before {
+  content: ""; position: absolute; inset: 8% 6%; border-radius: 50%;
+  border: 1.5px solid #d9ff5a; transform: rotate(-13deg) scaleX(1.15);
+  transition: border-color .25s ease; pointer-events: none;
+}
+.oval-btn--lime:hover::before { border-color: #fff; }
+.oval-btn--lime:hover { background: transparent; }
+.oval-btn--lime .dot {
+  position: relative; z-index: 1; width: 32px; height: 32px;
+  background: transparent; color: #fff;
+}
+.oval-btn--lime:hover .dot { transform: none; }
+
 .buy-tag {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 9px 18px; border-radius: 40px;
@@ -143,6 +163,17 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   background: var(--pink); color: #fff; border-radius: 40px;
   font-size: 12px; font-weight: 700; letter-spacing: .04em;
   box-shadow: var(--shadow-sm);
+}
+
+/* Color-variant swatch dot, top-left of each product card. Figma has a
+   unique ellipse image asset per product (imgEllipse231..235, confirmed
+   via get_design_context) but the actual fill color can't be read since
+   the asset can't be downloaded (figma.com blocked) — colors below are
+   visually estimated from the reference screenshot, not exact values. */
+.product-card__swatch {
+  position: absolute; top: 14px; left: 14px; z-index: 1;
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid #fff; box-shadow: var(--shadow-sm);
 }
 
 /* placeholder object */
@@ -244,7 +275,10 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .hero__price { font-family: var(--num); font-size: 40px; font-weight: 400; letter-spacing: .04em; color: #d9ff5a; display: flex; align-items: baseline; gap: 6px; }
 .hero__price span { font-family: var(--display); font-size: 20px; font-weight: 400; }
 
-/* buy button: organic "blob" of two rotated ellipses behind the label, as in the design */
+/* buy button: two rotated lime-outline ellipses (border only, no fill)
+   behind the label — same reusable ellipse asset/motif as "Загрузить
+   ещё" (node 2468:2845, imgEllipse2, rotate-13); hero uses two stacked
+   (rotate -13 / -2), confirmed via get_design_context */
 .hero__buy {
   position: absolute; right: 6%; bottom: 6%; z-index: 2;
   display: inline-flex; align-items: center; justify-content: center;
@@ -253,12 +287,13 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .hero__buy-blob { position: absolute; inset: 0; }
 .hero__buy-blob::before, .hero__buy-blob::after {
   content: ""; position: absolute; inset: 8% 0; border-radius: 50%;
-  background: rgba(255,255,255,.16); transition: background .25s ease;
+  border: 1.5px solid #d9ff5a; background: transparent;
+  transition: border-color .25s ease;
 }
 .hero__buy-blob::before { transform: rotate(-13deg) scaleX(1.28); }
-.hero__buy-blob::after { transform: rotate(-2deg) scaleX(1.2); background: rgba(255,255,255,.22); }
+.hero__buy-blob::after { transform: rotate(-2deg) scaleX(1.2); }
 .hero__buy:hover .hero__buy-blob::before,
-.hero__buy:hover .hero__buy-blob::after { background: rgba(255,255,255,.32); }
+.hero__buy:hover .hero__buy-blob::after { border-color: #fff; }
 .hero__buy-content {
   position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px;
   color: #fff; font-family: var(--display); font-size: 20px; font-weight: 500;
