@@ -114,8 +114,8 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .oval-btn {
   display: inline-flex; align-items: center; gap: 22px;
   padding: 12px 12px 12px 34px;
-  border: 1.5px solid var(--ink);
-  border-radius: 50px; background: transparent; color: var(--ink);
+  border: 1.5px solid var(--lime);
+  border-radius: 50px; background: transparent; color: var(--lime);
   font-size: 15px; font-weight: 600; letter-spacing: .02em;
   transition: background .25s ease, color .25s ease;
 }
@@ -125,8 +125,8 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   display: grid; place-items: center; flex-shrink: 0;
   transition: transform .25s ease;
 }
-.oval-btn:hover { background: rgba(255,255,255,.18); }
-.oval-btn:hover .dot { transform: rotate(45deg); }
+.oval-btn:hover, .oval-btn:focus-visible { background: var(--lime); color: var(--lime-ink); }
+.oval-btn:hover .dot, .oval-btn:focus-visible .dot { background: var(--lime-ink); color: var(--lime); transform: rotate(45deg); }
 .oval-btn .dot svg { width: 18px; height: 18px; }
 
 .buy-tag {
