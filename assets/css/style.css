@@ -244,7 +244,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .hero__price { font-family: var(--num); font-size: 40px; font-weight: 400; letter-spacing: .04em; color: #d9ff5a; display: flex; align-items: baseline; gap: 6px; }
 .hero__price span { font-family: var(--display); font-size: 20px; font-weight: 400; }
 
-/* buy button: organic "blob" of two rotated ellipses behind the label, as in the design */
+/* buy button: two overlapping thin lime-outline ellipses behind the label, as in the design */
 .hero__buy {
   position: absolute; right: 6%; bottom: 6%; z-index: 2;
   display: inline-flex; align-items: center; justify-content: center;
@@ -253,12 +253,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .hero__buy-blob { position: absolute; inset: 0; }
 .hero__buy-blob::before, .hero__buy-blob::after {
   content: ""; position: absolute; inset: 8% 0; border-radius: 50%;
-  background: rgba(255,255,255,.16); transition: background .25s ease;
+  border: 1.5px solid #d9ff5a; background: transparent; transition: border-color .25s ease;
 }
 .hero__buy-blob::before { transform: rotate(-13deg) scaleX(1.28); }
-.hero__buy-blob::after { transform: rotate(-2deg) scaleX(1.2); background: rgba(255,255,255,.22); }
+.hero__buy-blob::after { transform: rotate(-2deg) scaleX(1.2); }
 .hero__buy:hover .hero__buy-blob::before,
-.hero__buy:hover .hero__buy-blob::after { background: rgba(255,255,255,.32); }
+.hero__buy:hover .hero__buy-blob::after { border-color: #fff; }
 .hero__buy-content {
   position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px;
   color: #fff; font-family: var(--display); font-size: 20px; font-weight: 500;
