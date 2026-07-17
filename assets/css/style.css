@@ -26,7 +26,7 @@
 }
 
 :root {
-  --bg: #b3a2e0;            /* основной лавандовый фон */
+  --bg: #ae97e8;            /* основной лавандовый фон — единый на весь сайт */
   --bg-soft: #bcaee6;
   --ink: #2c2447;          /* тёмно-фиолетовый текст */
   --ink-soft: #5b5280;
@@ -215,7 +215,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
    Exact colors from design: purple #ae97e8, pink #fa8fef,
    blue #aecfff, lime #d9ff5a
    ============================================================ */
-.hero { background: #ae97e8; overflow: hidden; }
+.hero { background: var(--bg); overflow: hidden; }
 .hero__row {
   display: flex; align-items: stretch; gap: 22px;
   padding: 24px 48px 24px 0; min-height: 760px;
