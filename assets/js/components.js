@@ -127,6 +127,20 @@
         '<span>Нет аккаунта?</span>' +
         '<a href="#" data-open-register>Регистрация <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>' +
       '</div>' +
+    '</div>' +
+    // registration modal — figma node 2576:4793 (mobile "окно")
+    '<div class="login-modal" id="register" role="dialog" aria-modal="true">' +
+      '<button class="login-modal__close" data-close aria-label="закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+      '<h3 class="login-modal__title">Регистрация</h3>' +
+      '<form class="login-modal__form" data-register-form>' +
+        '<div class="login-modal__field"><label>E-mail</label><input type="email" required /></div>' +
+        '<div class="login-modal__field"><label>Пароль</label><input type="password" required /></div>' +
+        '<div class="login-modal__field"><label>Повторите пароль</label><input type="password" required /></div>' +
+        '<button type="submit" class="login-modal__submit login-modal__submit--wide"><span class="login-modal__oval login-modal__oval--wide"></span><span>Регистрация</span></button>' +
+      '</form>' +
+      '<div class="login-modal__foot">' +
+        '<a href="#" data-open-login>Вход <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>' +
+      '</div>' +
     '</div>';
   }
 

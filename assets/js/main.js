@@ -31,12 +31,17 @@
     var quickview = document.getElementById("quickview");
     var cartDrawer = document.getElementById("cart");
     var loginModal = document.getElementById("login");
-    function open(el) { if (overlay) overlay.classList.add("open"); if (el) el.classList.add("open"); document.body.style.overflow = "hidden"; }
+    var registerModal = document.getElementById("register");
+    var allOverlayed = [quickview, cartDrawer, loginModal, registerModal];
+    function open(el) {
+      allOverlayed.forEach(function (m) { if (m && m !== el) m.classList.remove("open"); });
+      if (overlay) overlay.classList.add("open");
+      if (el) el.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
     function closeAll() {
       if (overlay) overlay.classList.remove("open");
-      if (quickview) quickview.classList.remove("open");
-      if (cartDrawer) cartDrawer.classList.remove("open");
-      if (loginModal) loginModal.classList.remove("open");
+      allOverlayed.forEach(function (m) { if (m) m.classList.remove("open"); });
       document.body.style.overflow = "";
     }
     if (overlay) overlay.addEventListener("click", closeAll);
@@ -73,13 +78,11 @@
       // open cart
       if (e.target.closest("[data-open-cart]")) { open(cartDrawer); return; }
       // open login
-      if (e.target.closest("[data-open-login]")) { open(loginModal); return; }
-      // register link (no registration screen yet)
-      if (e.target.closest("[data-open-register]")) {
-        e.preventDefault();
-        showToast("Регистрация скоро появится");
-        return;
-      }
+      var openLogin = e.target.closest("[data-open-login]");
+      if (openLogin) { e.preventDefault(); open(loginModal); return; }
+      // open register
+      var openRegister = e.target.closest("[data-open-register]");
+      if (openRegister) { e.preventDefault(); open(registerModal); return; }
       // remove from cart
       var rm = e.target.closest("[data-remove]");
       if (rm) { cart.splice(+rm.getAttribute("data-remove"), 1); renderCart(); return; }
@@ -156,12 +159,19 @@
       });
     });
 
-    /* ---------- Login ---------- */
+    /* ---------- Login / register ---------- */
     document.querySelectorAll("[data-login-form]").forEach(function (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         form.reset(); closeAll();
         showToast("Вход скоро появится");
+      });
+    });
+    document.querySelectorAll("[data-register-form]").forEach(function (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        form.reset(); closeAll();
+        showToast("Регистрация скоро появится");
       });
     });
 
