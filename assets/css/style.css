@@ -60,7 +60,7 @@
   --sans: "Euclid Circular A", "Poppins", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --display: "Euclid Circular A", "Poppins", "Manrope", sans-serif;
   --num: "Floreste", "Playfair Display", Georgia, serif;
-  --logo: "Le Murmure", "Dancing Script", cursive; /* фолбэк до загрузки реального шрифта */
+  --logo: "Le Murmure", "Sacramento", cursive; /* фолбэк до загрузки реального шрифта */
 }
 
 * { box-sizing: border-box; }

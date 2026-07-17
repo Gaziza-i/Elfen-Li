@@ -9,7 +9,7 @@
 | **Le Murmure** | логотип «Elfen lied» в шапке и подвале | `LeMurmure.otf` (или `.woff2`) |
 
 Пока файлов нет, сайт использует бесплатные фолбэки: **Poppins** вместо Euclid,
-**Playfair Display** вместо Floreste, **Dancing Script** вместо Le Murmure
+**Playfair Display** вместо Floreste, **Sacramento** вместо Le Murmure
 (подключаются автоматически через Google Fonts).
 
 ## У тебя уже есть Floreste — как подключить
