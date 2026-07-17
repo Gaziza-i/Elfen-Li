@@ -175,6 +175,15 @@
       });
     });
 
+    /* ---------- Contact form ---------- */
+    document.querySelectorAll("[data-contact-form]").forEach(function (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        form.reset();
+        showToast("Сообщение отправлено! Мы свяжемся с вами");
+      });
+    });
+
     /* ---------- Filters toggle ---------- */
     var ft = document.querySelector("[data-filter-toggle]");
     var fp = document.getElementById("filters");

@@ -24,7 +24,7 @@
     return '<nav class="main-nav" id="mainNav"><ul>' +
       a('index.html#catalog', 'Каталог', 'catalog', ICON.grid) +
       a('index.html#blog', 'Блог', 'blog', '') +
-      a('index.html#footer', 'Контакты', 'contacts', '') +
+      a('index.html#contacts', 'Контакты', 'contacts', '') +
     '</ul></nav>';
   }
 
@@ -59,7 +59,7 @@
           '<p>Дизайнерский декор, который превращает интерьер в искусство.</p>' +
         '</div>' +
         col('Каталог', [['Напольные зеркала', 'index.html#catalog'], ['Торшеры и лампы', 'index.html#catalog'], ['Кресла и стулья', 'index.html#catalog'], ['Столы и тумбы', 'index.html#catalog']]) +
-        col('Компания', [['О нас', 'index.html#catalog'], ['Блог', 'index.html#blog'], ['Доставка', '#'], ['Контакты', 'index.html#footer']]) +
+        col('Компания', [['О нас', 'index.html#catalog'], ['Блог', 'index.html#blog'], ['Доставка', '#'], ['Контакты', 'index.html#contacts']]) +
         col('Контакты', [['+7 495 737-06-01', 'tel:+74957370601'], ['hello@elfenlied.ru', 'mailto:hello@elfenlied.ru'], ['Москва, ул. 3-я Хорошевская, 2', '#']]) +
       '</div>' +
       '<div class="site-footer__bottom">' +
