@@ -21,28 +21,29 @@
       return '<li><a href="' + href + '"' + (active === key ? ' class="is-active"' : '') + '>' +
         (icon ? icon + ' ' : '') + label + '</a></li>';
     }
-    return '<nav class="main-nav" id="mainNav"><ul>' +
-      a('index.html#catalog', 'Каталог', 'catalog', ICON.grid) +
-      a('index.html#blog', 'Блог', 'blog', '') +
-      a('index.html#footer', 'Контакты', 'contacts', '') +
-    '</ul></nav>';
+    // Figma: "Каталог" (with grid icon) sits as its own group, separate
+    // from "Блог"/"Контакты" — not one tight nav cluster.
+    return '<nav class="main-nav" id="mainNav">' +
+      '<ul><li><a href="index.html#catalog"' + (active === 'catalog' ? ' class="is-active"' : '') + '>' + ICON.grid + ' Каталог</a></li></ul>' +
+      '<ul>' + a('index.html#blog', 'Блог', 'blog', '') + a('index.html#footer', 'Контакты', 'contacts', '') + '</ul>' +
+      '<form class="search-box" data-search>' + ICON.search + '<input type="text" placeholder="Поиск" aria-label="Поиск" /></form>' +
+    '</nav>';
   }
 
   function headerHTML(active) {
     return '' +
-    '<header class="site-header"><div class="container"><div class="site-header__inner">' +
+    '<header class="site-header"><div class="container site-header__inner">' +
       '<a class="logo" href="index.html">Elfen lied</a>' +
       nav(active) +
       '<div class="header-actions">' +
-        '<form class="search-box" data-search><span>' + ICON.search + '</span><input type="text" placeholder="Поиск" aria-label="Поиск" /></form>' +
         '<div class="icon-cluster">' +
           '<a href="index.html#catalog" aria-label="Избранное">' + ICON.heart + '</a>' +
           '<a href="index.html#footer" aria-label="Профиль">' + ICON.user + '</a>' +
           '<button class="badge" data-open-cart aria-label="Корзина">' + ICON.bag + '<span data-cart-count>0</span></button>' +
-          '<button class="burger" id="burger" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
         '</div>' +
+        '<button class="burger" id="burger" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
       '</div>' +
-    '</div></div></header>';
+    '</div></header>';
   }
 
   function col(title, links) {

@@ -24,9 +24,17 @@
        url("../fonts/Floreste.ttf") format("truetype");
   font-weight: 400; font-style: normal; font-display: swap;
 }
+@font-face {
+  font-family: "Le Murmure";
+  src: url("../fonts/LeMurmure.woff2") format("woff2"),
+       url("../fonts/LeMurmure.woff") format("woff"),
+       url("../fonts/LeMurmure.otf") format("opentype"),
+       url("../fonts/LeMurmure.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
 
 :root {
-  --bg: #b3a2e0;            /* основной лавандовый фон */
+  --bg: #ae97e8;            /* единый фон всего сайта (точное значение из Figma, hero node 2470:3031) */
   --bg-soft: #bcaee6;
   --ink: #2c2447;          /* тёмно-фиолетовый текст */
   --ink-soft: #5b5280;
@@ -52,6 +60,7 @@
   --sans: "Euclid Circular A", "Poppins", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --display: "Euclid Circular A", "Poppins", "Manrope", sans-serif;
   --num: "Floreste", "Playfair Display", Georgia, serif;
+  --logo: "Le Murmure", "Dancing Script", cursive; /* фолбэк до загрузки реального шрифта */
 }
 
 * { box-sizing: border-box; }
@@ -185,68 +194,63 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .obj svg { width: 46%; max-width: 150px; filter: drop-shadow(0 14px 24px rgba(44,30,80,.25)); }
 
 /* ============================================================
-   Header
+   Header — pixel-matched to Figma (symbol 2741:8109, «меню»)
+   Flat, transparent — same single background as the rest of the site,
+   no pill/card container, no colored search/icon groups (that was an
+   earlier, incorrect assumption on my part).
    ============================================================ */
-.site-header { position: sticky; top: 0; z-index: 60; padding: 18px 0; }
-.site-header__inner {
-  display: flex; align-items: center; gap: 30px;
-  background: rgba(255,255,255,.16);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,.28);
-  border-radius: 50px; padding: 12px 14px 12px 28px;
-}
-.logo { font-family: var(--serif); font-size: 26px; font-weight: 800; font-style: italic; letter-spacing: .01em; }
-.main-nav { margin-left: 18px; }
+.site-header { position: sticky; top: 0; z-index: 60; background: var(--bg); }
+.site-header__inner { display: flex; align-items: center; height: 96px; gap: 24px; }
+.logo { font-family: var(--logo); font-size: 45px; font-weight: 400; color: #fff; line-height: 1; }
+
+/* middle cluster: Каталог … Блог Контакты … Поиск, evenly spread
+   between logo and icons (matches the ~even gaps measured in Figma) */
+.main-nav { flex: 1; display: flex; align-items: center; justify-content: space-between; }
 .main-nav ul { display: flex; gap: 34px; align-items: center; }
 .main-nav a {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 15px; font-weight: 600; color: var(--ink);
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--display); font-size: 18px; font-weight: 500; color: #fff;
   position: relative; padding: 6px 0;
 }
 .main-nav a svg { width: 16px; height: 16px; }
 .main-nav a::after {
   content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px;
-  background: var(--ink); transition: width .25s ease;
+  background: #fff; transition: width .25s ease;
 }
 .main-nav a:hover::after, .main-nav a.is-active::after { width: 100%; }
 
-.header-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
-.search-box {
-  display: flex; align-items: center; gap: 10px;
-  background: var(--pink); color: #fff;
-  border-radius: 40px; padding: 12px 20px; min-width: 200px;
-}
-.search-box svg { width: 18px; height: 18px; flex-shrink: 0; }
+.header-actions { display: flex; align-items: center; gap: 36px; }
+.search-box { display: flex; align-items: center; gap: 12px; background: none; }
+.search-box svg { width: 22px; height: 22px; flex-shrink: 0; color: #fff; }
 .search-box input {
-  border: none; background: transparent; color: #fff; font-family: inherit;
-  font-size: 14px; width: 100%; outline: none;
+  border: none; background: transparent; color: #fff; font-family: var(--display);
+  font-size: 18px; width: 90px; outline: none;
 }
-.search-box input::placeholder { color: rgba(255,255,255,.8); }
+.search-box input::placeholder { color: #fff; opacity: 1; }
 .icon-cluster {
-  display: flex; align-items: center; gap: 6px;
-  background: var(--blue); border-radius: 40px; padding: 6px;
+  display: flex; align-items: center; gap: 36px;
+  filter: drop-shadow(10px 15px 25px rgba(173,178,201,.2));
 }
 .icon-cluster button, .icon-cluster a {
-  width: 44px; height: 44px; border-radius: 50%;
-  display: grid; place-items: center; color: var(--ink);
-  transition: background .2s ease;
+  display: grid; place-items: center; color: #fff; position: relative;
+  transition: transform .2s ease;
 }
-.icon-cluster button:hover, .icon-cluster a:hover { background: rgba(255,255,255,.4); }
-.icon-cluster svg { width: 20px; height: 20px; }
+.icon-cluster button:hover, .icon-cluster a:hover { transform: translateY(-2px); }
+.icon-cluster svg { width: 22px; height: 22px; }
 .icon-cluster .badge { position: relative; }
 .icon-cluster .badge span {
-  position: absolute; top: 2px; right: 2px; width: 16px; height: 16px;
+  position: absolute; top: -6px; right: -8px; width: 15px; height: 15px;
   background: var(--pink-strong); color: #fff; border-radius: 50%;
-  font-size: 10px; font-weight: 700; display: grid; place-items: center;
+  font-size: 9px; font-weight: 700; display: grid; place-items: center;
 }
-.burger { display: none; }
+.burger { display: none; color: #fff; }
 
 /* ============================================================
    Hero — pixel-matched to Figma (frame "1", 1900x1058)
    Exact colors from design: purple #ae97e8, pink #fa8fef,
    blue #aecfff, lime #d9ff5a
    ============================================================ */
-.hero { background: #ae97e8; overflow: hidden; }
+.hero { background: var(--bg); overflow: hidden; }
 .hero__row {
   display: flex; align-items: stretch; gap: 22px;
   padding: 24px 48px 24px 0; min-height: 760px;
@@ -650,16 +654,22 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   .hero__panel { flex: 1 1 calc(50% - 11px); min-height: 320px; }
   .main-nav { display: none; }
   .burger { display: grid; }
-  .search-box { min-width: 0; }
   .blog-grid { grid-template-columns: 1fr; }
   .filters { grid-template-columns: 1fr; gap: 24px; }
-  /* mobile nav */
+  /* mobile nav: dark text/icons on the white dropdown (header itself is
+     white-on-purple, but this popover needs the opposite contrast) */
   .main-nav.open {
-    display: block; position: absolute; top: 84px; left: var(--gutter); right: var(--gutter);
+    display: flex; flex-direction: column; align-items: stretch; gap: 6px;
+    position: absolute; top: 84px; left: var(--gutter); right: var(--gutter);
     background: #fff; border-radius: 24px; padding: 18px 24px; box-shadow: var(--shadow); z-index: 59;
   }
   .main-nav.open ul { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .main-nav.open a { display: flex; width: 100%; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .main-nav.open a { display: flex; width: 100%; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--ink); }
+  .main-nav.open a::after { background: var(--ink); }
+  .main-nav.open .search-box { padding: 12px 0; }
+  .main-nav.open .search-box svg { color: var(--ink); }
+  .main-nav.open .search-box input { color: var(--ink); width: 100%; }
+  .main-nav.open .search-box input::placeholder { color: var(--muted); }
 }
 @media (max-width: 760px) {
   .product-row { grid-template-columns: repeat(2, 1fr); }
