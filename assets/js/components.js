@@ -21,33 +21,28 @@
       return '<li><a href="' + href + '"' + (active === key ? ' class="is-active"' : '') + '>' +
         (icon ? icon + ' ' : '') + label + '</a></li>';
     }
-    // Figma: "Каталог" (with grid icon) sits as its own group, separate
-    // from "Блог"/"Контакты" — not one tight nav cluster.
-    return '<nav class="main-nav" id="mainNav">' +
-      '<ul><li><a href="index.html#catalog"' + (active === 'catalog' ? ' class="is-active"' : '') + '>' + ICON.grid + ' Каталог</a></li></ul>' +
-      '<ul>' + a('index.html#blog', 'Блог', 'blog', '') + a('index.html#footer', 'Контакты', 'contacts', '') + '</ul>' +
-      '<form class="search-box" data-search>' + ICON.search + '<input type="text" placeholder="Поиск" aria-label="Поиск" /></form>' +
-    '</nav>';
+    return '<nav class="main-nav" id="mainNav"><ul>' +
+      a('index.html#catalog', 'Каталог', 'catalog', ICON.grid) +
+      a('index.html#blog', 'Блог', 'blog', '') +
+      a('index.html#footer', 'Контакты', 'contacts', '') +
+    '</ul></nav>';
   }
 
   function headerHTML(active) {
-    // Figma's mobile menu (node 2572:5459) has no burger/nav popup at all —
-    // just the logo + 4 plain icons (search, favorite, profile, cart), no
-    // "Поиск" text label. .icon-cluster-search is the mobile-only search
-    // icon shown once .main-nav (with its own search box) hides.
     return '' +
-    '<header class="site-header"><div class="container site-header__inner">' +
+    '<header class="site-header"><div class="container"><div class="site-header__inner">' +
       '<a class="logo" href="index.html">Elfen lied</a>' +
       nav(active) +
       '<div class="header-actions">' +
+        '<form class="search-box" data-search><span>' + ICON.search + '</span><input type="text" placeholder="Поиск" aria-label="Поиск" /></form>' +
         '<div class="icon-cluster">' +
-          '<button class="icon-cluster-search" data-toast="Поиск скоро появится" aria-label="Поиск">' + ICON.search + '</button>' +
           '<a href="index.html#catalog" aria-label="Избранное">' + ICON.heart + '</a>' +
           '<a href="index.html#footer" aria-label="Профиль">' + ICON.user + '</a>' +
           '<button class="badge" data-open-cart aria-label="Корзина">' + ICON.bag + '<span data-cart-count>0</span></button>' +
+          '<button class="burger" id="burger" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
         '</div>' +
       '</div>' +
-    '</div></header>';
+    '</div></div></header>';
   }
 
   function col(title, links) {
@@ -129,5 +124,9 @@
     var f = document.querySelector("[data-footer]");
     if (f) f.outerHTML = footerHTML();
     document.body.insertAdjacentHTML("beforeend", modalsHTML());
+
+    var burger = document.getElementById("burger");
+    var mnav = document.getElementById("mainNav");
+    if (burger && mnav) burger.addEventListener("click", function () { mnav.classList.toggle("open"); });
   });
 })();

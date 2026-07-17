@@ -215,51 +215,6 @@
     });
     window.__elfenTryImg = tryImg; // reused by quick-view
 
-    /* ---------- Category card curved ring text ----------
-       "изготовление на заказ" — 21 letters, exact per-letter rotate
-       (deg) and box (x, y, w, h) copied verbatim from Figma
-       (node 2468:2500, "надпись"). Identical on all 4 category
-       cards, so generated once per .figcat__ring found on the page. */
-    var RING_LETTERS = [
-      { c: "и", deg: -142, x: 94.12, y: 418.59, w: 14.652, h: 14.825 },
-      { c: "з", deg: -137, x: 86.15, y: 411.25, w: 13.353, h: 13.501 },
-      { c: "г", deg: -134, x: 80.14, y: 404.66, w: 12.775, h: 12.677 },
-      { c: "о", deg: -131, x: 72.44, y: 397.62, w: 14.862, h: 14.764 },
-      { c: "т", deg: -128, x: 67.07, y: 390.46, w: 13.593, h: 13.076 },
-      { c: "о", deg: -125, x: 60.26, y: 381.75, w: 14.746, h: 14.501 },
-      { c: "в", deg: -121, x: 55.36, y: 373.31, w: 14.064, h: 13.38 },
-      { c: "л", deg: -118, x: 49.3,  y: 363,    w: 14.407, h: 13.994 },
-      { c: "е", deg: -115, x: 43.77, y: 354.14, w: 14.196, h: 13.712 },
-      { c: "н", deg: -112, x: 40.25, y: 343.3,  w: 13.945, h: 13.393 },
-      { c: "и", deg: -109, x: 35.74, y: 332.48, w: 13.656, h: 13.036 },
-      { c: "е", deg: -106, x: 32.24, y: 320.68, w: 13.33,  h: 12.645 },
-      { c: " ", deg: -104, x: 31.03, y: 313.73, w: 11.641, h: 6.542 },
-      { c: "н", deg: -102, x: 28.92, y: 304.97, w: 12.839, h: 12.069 },
-      { c: "а", deg: -99,  x: 26.43, y: 293.2,  w: 12.429, h: 11.598 },
-      { c: " ", deg: -97,  x: 25.51, y: 284.35, w: 11.405, h: 5.311 },
-      { c: "з", deg: -95,  x: 25.3,  y: 276.54, w: 11.655, h: 8.928 },
-      { c: "а", deg: -93,  x: 24.48, y: 264.72, w: 11.508, h: 10.562 },
-      { c: "к", deg: -90,  x: 24,    y: 253.5,  w: 11,     h: 9 },
-      { c: "а", deg: -88,  x: 24,    y: 243.2,  w: 11.342, h: 10.378 },
-      { c: "з", deg: -86,  x: 24,    y: 232.39, w: 11.531, h: 8.748 }
-    ];
-    document.querySelectorAll("[data-ring]").forEach(function (ring) {
-      var frag = document.createDocumentFragment();
-      RING_LETTERS.forEach(function (l) {
-        var span = document.createElement("span");
-        span.style.left = l.x + "px";
-        span.style.top = l.y + "px";
-        span.style.width = l.w + "px";
-        span.style.height = l.h + "px";
-        var i = document.createElement("i");
-        i.style.transform = "rotate(" + l.deg + "deg)";
-        i.textContent = l.c;
-        span.appendChild(i);
-        frag.appendChild(span);
-      });
-      ring.appendChild(frag);
-    });
-
     /* ---------- Reveal ---------- */
     var io;
     function observe(el) { if (io) io.observe(el); }

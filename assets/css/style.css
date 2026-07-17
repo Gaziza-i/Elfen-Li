@@ -24,17 +24,9 @@
        url("../fonts/Floreste.ttf") format("truetype");
   font-weight: 400; font-style: normal; font-display: swap;
 }
-@font-face {
-  font-family: "Le Murmure";
-  src: url("../fonts/LeMurmure.woff2") format("woff2"),
-       url("../fonts/LeMurmure.woff") format("woff"),
-       url("../fonts/LeMurmure.otf") format("opentype"),
-       url("../fonts/LeMurmure.ttf") format("truetype");
-  font-weight: 400; font-style: normal; font-display: swap;
-}
 
 :root {
-  --bg: #ae97e8;            /* единый фон всего сайта (точное значение из Figma, hero node 2470:3031) */
+  --bg: #b3a2e0;            /* основной лавандовый фон */
   --bg-soft: #bcaee6;
   --ink: #2c2447;          /* тёмно-фиолетовый текст */
   --ink-soft: #5b5280;
@@ -60,7 +52,6 @@
   --sans: "Euclid Circular A", "Poppins", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --display: "Euclid Circular A", "Poppins", "Manrope", sans-serif;
   --num: "Floreste", "Playfair Display", Georgia, serif;
-  --logo: "Le Murmure", "Sacramento", cursive; /* фолбэк до загрузки реального шрифта */
 }
 
 * { box-sizing: border-box; }
@@ -137,26 +128,6 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .oval-btn:hover .dot { transform: rotate(45deg); }
 .oval-btn .dot svg { width: 18px; height: 18px; }
 
-/* "Загрузить ещё" — confirmed via Figma (node 2468:2845): same reusable
-   rotated lime-outline ellipse motif as hero's "Купить" (imgEllipse2,
-   rotate -13deg), arrow-down icon (vuesax/linear/arrow-down) */
-.oval-btn--lime {
-  position: relative; border: none; padding: 12px 40px; gap: 14px;
-  color: #fff; overflow: visible;
-}
-.oval-btn--lime::before {
-  content: ""; position: absolute; inset: 8% 6%; border-radius: 50%;
-  border: 1.5px solid #d9ff5a; transform: rotate(-13deg) scaleX(1.15);
-  transition: border-color .25s ease; pointer-events: none;
-}
-.oval-btn--lime:hover::before { border-color: #fff; }
-.oval-btn--lime:hover { background: transparent; }
-.oval-btn--lime .dot {
-  position: relative; z-index: 1; width: 32px; height: 32px;
-  background: transparent; color: #fff;
-}
-.oval-btn--lime:hover .dot { transform: none; }
-
 .buy-tag {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 9px 18px; border-radius: 40px;
@@ -174,17 +145,6 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   box-shadow: var(--shadow-sm);
 }
 
-/* Color-variant swatch dot, top-left of each product card. Figma has a
-   unique ellipse image asset per product (imgEllipse231..235, confirmed
-   via get_design_context) but the actual fill color can't be read since
-   the asset can't be downloaded (figma.com blocked) — colors below are
-   visually estimated from the reference screenshot, not exact values. */
-.product-card__swatch {
-  position: absolute; top: 14px; left: 14px; z-index: 1;
-  width: 16px; height: 16px; border-radius: 50%;
-  border: 2px solid #fff; box-shadow: var(--shadow-sm);
-}
-
 /* placeholder object */
 .obj {
   width: 100%; height: 100%;
@@ -194,66 +154,68 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .obj svg { width: 46%; max-width: 150px; filter: drop-shadow(0 14px 24px rgba(44,30,80,.25)); }
 
 /* ============================================================
-   Header — pixel-matched to Figma (symbol 2741:8109, «меню»)
-   Flat, transparent — same single background as the rest of the site,
-   no pill/card container, no colored search/icon groups (that was an
-   earlier, incorrect assumption on my part).
+   Header
    ============================================================ */
-.site-header { position: sticky; top: 0; z-index: 60; background: var(--bg); }
-.site-header__inner { display: flex; align-items: center; height: 96px; gap: 24px; }
-.logo { font-family: var(--logo); font-size: 45px; font-weight: 400; color: #fff; line-height: 1; }
-
-/* middle cluster: Каталог … Блог Контакты … Поиск, evenly spread
-   between logo and icons (matches the ~even gaps measured in Figma) */
-.main-nav { flex: 1; display: flex; align-items: center; justify-content: space-between; }
+.site-header { position: sticky; top: 0; z-index: 60; padding: 18px 0; }
+.site-header__inner {
+  display: flex; align-items: center; gap: 30px;
+  background: rgba(255,255,255,.16);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 50px; padding: 12px 14px 12px 28px;
+}
+.logo { font-family: var(--serif); font-size: 26px; font-weight: 800; font-style: italic; letter-spacing: .01em; }
+.main-nav { margin-left: 18px; }
 .main-nav ul { display: flex; gap: 34px; align-items: center; }
 .main-nav a {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-family: var(--display); font-size: 18px; font-weight: 500; color: #fff;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 15px; font-weight: 600; color: var(--ink);
   position: relative; padding: 6px 0;
 }
 .main-nav a svg { width: 16px; height: 16px; }
 .main-nav a::after {
   content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px;
-  background: #fff; transition: width .25s ease;
+  background: var(--ink); transition: width .25s ease;
 }
 .main-nav a:hover::after, .main-nav a.is-active::after { width: 100%; }
 
-.header-actions { display: flex; align-items: center; gap: 36px; }
-.search-box { display: flex; align-items: center; gap: 12px; background: none; }
-.search-box svg { width: 22px; height: 22px; flex-shrink: 0; color: #fff; }
-.search-box input {
-  border: none; background: transparent; color: #fff; font-family: var(--display);
-  font-size: 18px; width: 90px; outline: none;
+.header-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.search-box {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--pink); color: #fff;
+  border-radius: 40px; padding: 12px 20px; min-width: 200px;
 }
-.search-box input::placeholder { color: #fff; opacity: 1; }
+.search-box svg { width: 18px; height: 18px; flex-shrink: 0; }
+.search-box input {
+  border: none; background: transparent; color: #fff; font-family: inherit;
+  font-size: 14px; width: 100%; outline: none;
+}
+.search-box input::placeholder { color: rgba(255,255,255,.8); }
 .icon-cluster {
-  display: flex; align-items: center; gap: 36px;
-  filter: drop-shadow(10px 15px 25px rgba(173,178,201,.2));
+  display: flex; align-items: center; gap: 6px;
+  background: var(--blue); border-radius: 40px; padding: 6px;
 }
 .icon-cluster button, .icon-cluster a {
-  display: grid; place-items: center; color: #fff; position: relative;
-  transition: transform .2s ease;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center; color: var(--ink);
+  transition: background .2s ease;
 }
-.icon-cluster button:hover, .icon-cluster a:hover { transform: translateY(-2px); }
-.icon-cluster svg { width: 22px; height: 22px; }
+.icon-cluster button:hover, .icon-cluster a:hover { background: rgba(255,255,255,.4); }
+.icon-cluster svg { width: 20px; height: 20px; }
 .icon-cluster .badge { position: relative; }
 .icon-cluster .badge span {
-  position: absolute; top: -6px; right: -8px; width: 15px; height: 15px;
+  position: absolute; top: 2px; right: 2px; width: 16px; height: 16px;
   background: var(--pink-strong); color: #fff; border-radius: 50%;
-  font-size: 9px; font-weight: 700; display: grid; place-items: center;
+  font-size: 10px; font-weight: 700; display: grid; place-items: center;
 }
-/* mobile-only search icon (Figma's mobile menu, node 2572:5459, has no
-   "Поиск" text label and no burger — just this icon in the row).
-   Selector must out-specificity ".icon-cluster button" above. */
-.icon-cluster button.icon-cluster-search { display: none; }
+.burger { display: none; }
 
 /* ============================================================
    Hero — pixel-matched to Figma (frame "1", 1900x1058)
    Exact colors from design: purple #ae97e8, pink #fa8fef,
    blue #aecfff, lime #d9ff5a
    ============================================================ */
-.hero { background: var(--bg); overflow: hidden; }
+.hero { background: #ae97e8; overflow: hidden; }
 .hero__row {
   display: flex; align-items: stretch; gap: 22px;
   padding: 24px 48px 24px 0; min-height: 760px;
@@ -282,10 +244,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .hero__price { font-family: var(--num); font-size: 40px; font-weight: 400; letter-spacing: .04em; color: #d9ff5a; display: flex; align-items: baseline; gap: 6px; }
 .hero__price span { font-family: var(--display); font-size: 20px; font-weight: 400; }
 
-/* buy button: two rotated lime-outline ellipses (border only, no fill)
-   behind the label — same reusable ellipse asset/motif as "Загрузить
-   ещё" (node 2468:2845, imgEllipse2, rotate-13); hero uses two stacked
-   (rotate -13 / -2), confirmed via get_design_context */
+/* buy button: organic "blob" of two rotated ellipses behind the label, as in the design */
 .hero__buy {
   position: absolute; right: 6%; bottom: 6%; z-index: 2;
   display: inline-flex; align-items: center; justify-content: center;
@@ -294,13 +253,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .hero__buy-blob { position: absolute; inset: 0; }
 .hero__buy-blob::before, .hero__buy-blob::after {
   content: ""; position: absolute; inset: 8% 0; border-radius: 50%;
-  border: 1.5px solid #d9ff5a; background: transparent;
-  transition: border-color .25s ease;
+  background: rgba(255,255,255,.16); transition: background .25s ease;
 }
 .hero__buy-blob::before { transform: rotate(-13deg) scaleX(1.28); }
-.hero__buy-blob::after { transform: rotate(-2deg) scaleX(1.2); }
+.hero__buy-blob::after { transform: rotate(-2deg) scaleX(1.2); background: rgba(255,255,255,.22); }
 .hero__buy:hover .hero__buy-blob::before,
-.hero__buy:hover .hero__buy-blob::after { border-color: #fff; }
+.hero__buy:hover .hero__buy-blob::after { background: rgba(255,255,255,.32); }
 .hero__buy-content {
   position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px;
   color: #fff; font-family: var(--display); font-size: 20px; font-weight: 500;
@@ -326,81 +284,23 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .hero__panel-foot .num { font-family: var(--num); font-size: 40px; font-weight: 400; letter-spacing: .04em; }
 
 /* ============================================================
-   Categories — pixel-matched to Figma (node 2468:2500)
-   Card 428x517 (mirrors/lamps) or 427x517 (chairs/tables), gap 30,
-   title-to-row gap 70. 3 assets missing (shape backdrop, 2 button
-   icon variants) — see assets/img/README.md; placeholders flagged
-   below with a comment at each rule.
+   Categories
    ============================================================ */
-/* Figma canvas is 1920 wide with 60px side gutters (1800px content area) —
-   narrower than this site's global .container (1720 max-width, 48px
-   gutter), which would clip the exact-width card row. Dedicated wrapper
-   matches Figma's own frame instead of the site-wide container. */
-.figcat__wrap { max-width: 1920px; margin: 0 auto; padding: 0 60px; }
-.figcat__title {
-  font-family: var(--display); font-size: 60px; font-weight: 500;
-  text-transform: uppercase; color: #fff; text-align: center; margin: 0 0 70px;
+.cat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.cat-card {
+  background: var(--card); border: 1px solid rgba(255,255,255,.3);
+  border-radius: var(--radius-lg); padding: 26px; text-align: center;
+  transition: transform .25s ease, background .25s ease;
 }
-.figcat__row {
-  display: flex; gap: 30px; align-items: center; justify-content: flex-start;
-  overflow-x: auto; /* prevents page-level horizontal overflow before the
-                        responsive (tablet/mobile) pass is done; flex-start
-                        (not center) avoids clipping the first card when the
-                        row is wider than the viewport, per the flex
-                        centering+overflow scroll-position bug */
+.cat-card:hover { transform: translateY(-8px); background: rgba(255,255,255,.32); }
+.cat-card__blob {
+  position: relative; height: 210px; border-radius: 50% 50% 46% 46%;
+  background: radial-gradient(circle at 50% 40%, rgba(255,255,255,.5), rgba(255,255,255,.12));
+  display: grid; place-items: center; margin-bottom: 22px;
 }
-.figcat__card {
-  position: relative; display: block; height: 517px; flex-shrink: 0;
-  color: inherit; text-decoration: none;
-}
-.figcat__card--w428 { width: 428px; }
-.figcat__card--w427 { width: 427px; }
-
-/* PLACEHOLDER: real "Subtract" shape asset (388x461.8) not available */
-.figcat__shape {
-  position: absolute; left: 5px; top: 0; width: 388px; height: 461.804px;
-  border-radius: 40px; background: rgba(255,255,255,.14); z-index: 0;
-}
-.figcat__name {
-  position: absolute; left: 0; top: 37px; z-index: 2;
-  font-family: var(--display); font-size: 28px; font-weight: 500;
-  line-height: normal; text-transform: uppercase; color: #fff;
-}
-.figcat__image { position: absolute; z-index: 1; display: block; }
-.figcat__image img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; display: block; }
-
-.figcat__badge {
-  position: absolute; left: 336px; top: 137px; width: 103px; height: 98px;
-  transform: rotate(-23deg); display: flex; flex-direction: column;
-  align-items: center; justify-content: center; z-index: 2;
-}
-/* PLACEHOLDER: real ellipse asset not available */
-.figcat__badge-ellipse { position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,.18); }
-.figcat__badge-num { position: relative; font-family: var(--num); font-size: 40px; font-weight: 400; letter-spacing: 1.6px; color: #fff; line-height: 1; }
-.figcat__badge-unit { position: relative; font-family: var(--display); font-size: 15px; font-weight: 500; text-transform: uppercase; color: #fff; margin-top: -2px; }
-
-/* PLACEHOLDER: real button icon (2 variants, "a"/"b") not available */
-.figcat__play {
-  position: absolute; left: 149px; top: 416px; width: 101px; height: 101px;
-  border-radius: 50%; background: rgba(255,255,255,.9);
-  display: grid; place-items: center; color: var(--ink); z-index: 2;
-  transition: transform .2s ease;
-}
-.figcat__play svg { width: 28px; height: 28px; }
-.figcat__card:hover .figcat__play { transform: scale(1.06); }
-
-/* curved ring "изготовление на заказ" — 21 letters, generated by JS
-   from exact Figma per-letter rotate/position (assets/js/main.js) */
-.figcat__ring { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.figcat__ring span {
-  position: absolute; display: flex; align-items: center; justify-content: center;
-  transform: translateY(-50%);
-}
-.figcat__ring span i {
-  display: inline-block; font-style: normal;
-  font-family: var(--display); font-size: 16px; font-weight: 500;
-  letter-spacing: 1.28px; color: #fff; white-space: nowrap;
-}
+.cat-card__blob .obj svg { max-width: 120px; color: #efe7ff; }
+.cat-card__name { font-family: var(--serif); font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 20px; }
+.cat-card__cta { display: flex; justify-content: center; }
 
 /* ============================================================
    Catalog / products
@@ -640,10 +540,8 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
    ============================================================ */
 @media (max-width: 1200px) {
   .product-row { grid-template-columns: repeat(3, 1fr); }
+  .cat-row { grid-template-columns: repeat(2, 1fr); }
   .site-footer__top { grid-template-columns: 1fr 1fr; }
-  /* .figcat__row: tablet/mobile pass not started yet (desktop-first,
-     per plan) — overflow-x:auto on the row keeps the page itself from
-     overflowing in the meantime */
 }
 @media (max-width: 1000px) {
   :root { --gutter: 24px; }
@@ -655,22 +553,26 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   .hero__object { min-height: 340px; }
   .hero__buy { position: static; align-self: flex-end; margin-top: 4px; }
   .hero__panel { flex: 1 1 calc(50% - 11px); min-height: 320px; }
-  /* Figma's mobile menu (2572:5459) has no nav links and no burger — just
-     logo (33px) + 4 plain icons (search, favorite, profile, cart), 23px
-     gap. Matched exactly; no dropdown/hamburger invented. */
   .main-nav { display: none; }
-  .logo { font-size: 33px; }
-  .icon-cluster { gap: 23px; }
-  .icon-cluster button.icon-cluster-search { display: grid; }
-  .icon-cluster-search svg { width: 22px; height: 22px; }
+  .burger { display: grid; }
+  .search-box { min-width: 0; }
   .blog-grid { grid-template-columns: 1fr; }
   .filters { grid-template-columns: 1fr; gap: 24px; }
+  /* mobile nav */
+  .main-nav.open {
+    display: block; position: absolute; top: 84px; left: var(--gutter); right: var(--gutter);
+    background: #fff; border-radius: 24px; padding: 18px 24px; box-shadow: var(--shadow); z-index: 59;
+  }
+  .main-nav.open ul { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .main-nav.open a { display: flex; width: 100%; padding: 12px 0; border-bottom: 1px solid var(--line); }
 }
 @media (max-width: 760px) {
   .product-row { grid-template-columns: repeat(2, 1fr); }
+  .search-box input { display: none; }
+  .search-box { padding: 12px; }
 }
 @media (max-width: 520px) {
-  .product-row { grid-template-columns: 1fr; }
+  .cat-row, .product-row { grid-template-columns: 1fr; }
   .hero__panel { flex: 1 1 100%; }
   .hero__buy { align-self: center; }
   .blog-card { flex-direction: column; min-height: 0; }
