@@ -31,17 +31,21 @@
   }
 
   function headerHTML(active) {
+    // Figma's mobile menu (node 2572:5459) has no burger/nav popup at all —
+    // just the logo + 4 plain icons (search, favorite, profile, cart), no
+    // "Поиск" text label. .icon-cluster-search is the mobile-only search
+    // icon shown once .main-nav (with its own search box) hides.
     return '' +
     '<header class="site-header"><div class="container site-header__inner">' +
       '<a class="logo" href="index.html">Elfen lied</a>' +
       nav(active) +
       '<div class="header-actions">' +
         '<div class="icon-cluster">' +
+          '<button class="icon-cluster-search" data-toast="Поиск скоро появится" aria-label="Поиск">' + ICON.search + '</button>' +
           '<a href="index.html#catalog" aria-label="Избранное">' + ICON.heart + '</a>' +
           '<a href="index.html#footer" aria-label="Профиль">' + ICON.user + '</a>' +
           '<button class="badge" data-open-cart aria-label="Корзина">' + ICON.bag + '<span data-cart-count>0</span></button>' +
         '</div>' +
-        '<button class="burger" id="burger" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
       '</div>' +
     '</div></header>';
   }
@@ -125,9 +129,5 @@
     var f = document.querySelector("[data-footer]");
     if (f) f.outerHTML = footerHTML();
     document.body.insertAdjacentHTML("beforeend", modalsHTML());
-
-    var burger = document.getElementById("burger");
-    var mnav = document.getElementById("mainNav");
-    if (burger && mnav) burger.addEventListener("click", function () { mnav.classList.toggle("open"); });
   });
 })();

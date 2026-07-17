@@ -243,7 +243,10 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   background: var(--pink-strong); color: #fff; border-radius: 50%;
   font-size: 9px; font-weight: 700; display: grid; place-items: center;
 }
-.burger { display: none; color: #fff; }
+/* mobile-only search icon (Figma's mobile menu, node 2572:5459, has no
+   "Поиск" text label and no burger — just this icon in the row).
+   Selector must out-specificity ".icon-cluster button" above. */
+.icon-cluster button.icon-cluster-search { display: none; }
 
 /* ============================================================
    Hero — pixel-matched to Figma (frame "1", 1900x1058)
@@ -652,29 +655,19 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   .hero__object { min-height: 340px; }
   .hero__buy { position: static; align-self: flex-end; margin-top: 4px; }
   .hero__panel { flex: 1 1 calc(50% - 11px); min-height: 320px; }
+  /* Figma's mobile menu (2572:5459) has no nav links and no burger — just
+     logo (33px) + 4 plain icons (search, favorite, profile, cart), 23px
+     gap. Matched exactly; no dropdown/hamburger invented. */
   .main-nav { display: none; }
-  .burger { display: grid; }
+  .logo { font-size: 33px; }
+  .icon-cluster { gap: 23px; }
+  .icon-cluster button.icon-cluster-search { display: grid; }
+  .icon-cluster-search svg { width: 22px; height: 22px; }
   .blog-grid { grid-template-columns: 1fr; }
   .filters { grid-template-columns: 1fr; gap: 24px; }
-  /* mobile nav: dark text/icons on the white dropdown (header itself is
-     white-on-purple, but this popover needs the opposite contrast) */
-  .main-nav.open {
-    display: flex; flex-direction: column; align-items: stretch; gap: 6px;
-    position: absolute; top: 84px; left: var(--gutter); right: var(--gutter);
-    background: #fff; border-radius: 24px; padding: 18px 24px; box-shadow: var(--shadow); z-index: 59;
-  }
-  .main-nav.open ul { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .main-nav.open a { display: flex; width: 100%; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--ink); }
-  .main-nav.open a::after { background: var(--ink); }
-  .main-nav.open .search-box { padding: 12px 0; }
-  .main-nav.open .search-box svg { color: var(--ink); }
-  .main-nav.open .search-box input { color: var(--ink); width: 100%; }
-  .main-nav.open .search-box input::placeholder { color: var(--muted); }
 }
 @media (max-width: 760px) {
   .product-row { grid-template-columns: repeat(2, 1fr); }
-  .search-box input { display: none; }
-  .search-box { padding: 12px; }
 }
 @media (max-width: 520px) {
   .product-row { grid-template-columns: 1fr; }
