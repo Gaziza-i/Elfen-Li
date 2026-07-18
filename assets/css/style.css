@@ -425,7 +425,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 }
 .blog-card__media svg { width: 50%; height: 50%; }
 .blog-card__time {
-  position: absolute; left: 26%; bottom: -6%; z-index: 2;
+  position: absolute; left: 24%; bottom: -10%; z-index: 2;
   width: 96px; height: 83px; border-radius: 50%;
   background-image: url("../img/blog-card-badge.png"); background-size: 100% 100%; background-repeat: no-repeat;
   color: #fff; transform: rotate(-15deg);
