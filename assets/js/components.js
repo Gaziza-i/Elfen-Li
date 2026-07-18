@@ -141,6 +141,12 @@
       '<div class="login-modal__foot">' +
         '<a href="#" data-open-login>Вход <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>' +
       '</div>' +
+    '</div>' +
+    // category quick-view modal — figma node "Модальное при клике на категорию" (2712:5000)
+    '<div class="category-modal" id="categoryModal" role="dialog" aria-modal="true">' +
+      '<button class="category-modal__close" data-close aria-label="закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+      '<h3 class="category-modal__title" data-category-title></h3>' +
+      '<div class="category-modal__list" data-category-list></div>' +
     '</div>';
   }
 

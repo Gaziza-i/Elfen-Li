@@ -569,6 +569,38 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .login-modal__foot a { display: inline-flex; align-items: center; gap: 8px; color: #fff; }
 .login-modal__foot a svg { width: 16px; height: 16px; }
 
+/* category quick-view modal — figma node 2712:5000 */
+.category-modal {
+  position: fixed; z-index: 101; left: 50%; top: 50%;
+  transform: translate(-50%, -46%) scale(.96);
+  width: min(420px, calc(100vw - 32px)); max-height: calc(100vh - 60px);
+  padding: 32px 24px; border-radius: 24px; overflow-y: auto;
+  background: var(--bg); box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease, transform .3s ease;
+}
+.category-modal.open { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+.category-modal__close {
+  position: absolute; top: 24px; right: 24px; width: 22px; height: 22px;
+  display: grid; place-items: center; color: #fff;
+}
+.category-modal__close svg { width: 18px; height: 18px; }
+.category-modal__title { font-size: 23px; font-weight: 500; text-transform: uppercase; color: #fff; margin: 0 0 30px; padding-right: 30px; }
+.category-modal__list { display: flex; flex-direction: column; gap: 32px; }
+.category-modal__item { display: flex; gap: 22px; }
+.category-modal__media {
+  flex: 0 0 75px; height: 120px; display: grid; place-items: center; color: #efe7ff;
+}
+.category-modal__media svg { max-width: 60px; }
+.category-modal__info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 15px; }
+.category-modal__row1 { display: flex; align-items: center; gap: 10px; }
+.category-modal__swatch { width: 16px; height: 16px; border-radius: 50%; border: 2px solid; flex-shrink: 0; }
+.category-modal__name { font-size: 15px; font-weight: 500; text-transform: uppercase; color: #fff; }
+.category-modal__kind { font-size: 13px; color: #fff; margin-top: -8px; }
+.category-modal__row2 { display: flex; align-items: center; justify-content: space-between; padding-top: 15px; border-top: 1px solid rgba(255,255,255,.25); }
+.category-modal__price { font-family: var(--num); font-size: 25px; letter-spacing: 1px; text-transform: uppercase; color: #fff; }
+.category-modal__buy { display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 16px; font-weight: 500; }
+.category-modal__buy svg { width: 24px; height: 24px; color: var(--lime); }
+
 /* ============================================================
    Real images (progressive enhancement)
    Drop files into assets/img/ with the names from assets/img/README.md

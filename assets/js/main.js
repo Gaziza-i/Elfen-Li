@@ -10,9 +10,23 @@
     Artemide:{ art: "Арт. GNM058", color: "Синий" }
   };
 
+  // цвета плашек — визуально оценены по скриншоту Figma (точные hex ассетов недоступны)
+  var CATEGORIES = {
+    lamps: {
+      title: "Торшеры и лампы",
+      items: [
+        { name: "Aubrey",   kind: "Лампа настольная", price: 150000, color: "#f2a65c", img: "assets/img/lamp-aubrey.png" },
+        { name: "Darrell",  kind: "Лампа настольная", price: 150000, color: "#f06fc4", img: "assets/img/lamp-darrell.png" },
+        { name: "Coppelia", kind: "Лампа настольная", price: 150000, color: "#4fd1c5", img: "assets/img/lamp-coppelia.png" },
+        { name: "Artemide", kind: "Лампа настольная", price: 150000, color: "#4fa8e0", img: "assets/img/lamp-artemide.png" }
+      ]
+    }
+  };
+
   document.addEventListener("DOMContentLoaded", function () {
     var mirror = (window.ElfenUI && window.ElfenUI.mirrorSVG) ||
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg>';
+    var lampSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M8 3h8l2 6H6l2-6z"/><path d="M12 9v9M8 21h8"/></svg>';
 
     /* ---------- Toast ---------- */
     var toast = document.createElement("div");
@@ -32,7 +46,8 @@
     var cartDrawer = document.getElementById("cart");
     var loginModal = document.getElementById("login");
     var registerModal = document.getElementById("register");
-    var allOverlayed = [quickview, cartDrawer, loginModal, registerModal];
+    var categoryModal = document.getElementById("categoryModal");
+    var allOverlayed = [quickview, cartDrawer, loginModal, registerModal, categoryModal];
     function open(el) {
       allOverlayed.forEach(function (m) { if (m && m !== el) m.classList.remove("open"); });
       if (overlay) overlay.classList.add("open");
@@ -72,6 +87,38 @@
     function addToCart(name, kind, price) { cart.push({ name: name, kind: kind, price: price }); renderCart(); }
     renderCart();
 
+    /* ---------- Category quick-view ---------- */
+    function openCategory(key) {
+      var data = CATEGORIES[key];
+      if (!data || !categoryModal) return;
+      var titleEl = categoryModal.querySelector("[data-category-title]");
+      var listEl = categoryModal.querySelector("[data-category-list]");
+      if (titleEl) titleEl.textContent = data.title;
+      if (listEl) {
+        listEl.innerHTML = data.items.map(function (item) {
+          return '<div class="category-modal__item" data-name="' + item.name + '" data-kind="' + item.kind + '" data-price="' + item.price + '">' +
+            '<div class="category-modal__media obj" data-img="' + item.img + '">' + lampSVG + '</div>' +
+            '<div class="category-modal__info">' +
+              '<div class="category-modal__row1">' +
+                '<span class="category-modal__swatch" style="border-color:' + item.color + '"></span>' +
+                '<span class="category-modal__name">' + item.name + '</span>' +
+              '</div>' +
+              '<div class="category-modal__kind">' + item.kind + '</div>' +
+              '<div class="category-modal__row2">' +
+                '<span class="category-modal__price">' + money(item.price) + '</span>' +
+                '<button class="category-modal__buy" data-add-cart aria-label="Купить">' + ICON_CART + 'Купить</button>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }).join("");
+        if (window.__elfenTryImg) {
+          listEl.querySelectorAll("[data-img]").forEach(function (el) { window.__elfenTryImg(el, el.getAttribute("data-img")); });
+        }
+      }
+      open(categoryModal);
+    }
+    var ICON_CART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>';
+
     /* ---------- Delegated clicks ---------- */
     var currentQV = null;
     document.body.addEventListener("click", function (e) {
@@ -83,16 +130,27 @@
       // open register
       var openRegister = e.target.closest("[data-open-register]");
       if (openRegister) { e.preventDefault(); open(registerModal); return; }
+      // open category quick-view
+      var openCat = e.target.closest("[data-open-category]");
+      if (openCat) { openCategory(openCat.getAttribute("data-open-category")); return; }
       // remove from cart
       var rm = e.target.closest("[data-remove]");
       if (rm) { cart.splice(+rm.getAttribute("data-remove"), 1); renderCart(); return; }
-      // add to cart from product card
+      // add to cart from product card / category quick-view item
       var add = e.target.closest("[data-add-cart]");
       if (add) {
         var card = add.closest(".product-card");
-        var name = card ? card.querySelector(".product-card__name").textContent : "Товар";
-        var kind = card ? card.querySelector(".product-card__kind").textContent : "";
-        var price = card ? parseInt(card.querySelector(".product-card__price").textContent.replace(/\D/g, ""), 10) : 150000;
+        var catItem = !card && add.closest(".category-modal__item");
+        var name = "Товар", kind = "", price = 150000;
+        if (card) {
+          name = card.querySelector(".product-card__name").textContent;
+          kind = card.querySelector(".product-card__kind").textContent;
+          price = parseInt(card.querySelector(".product-card__price").textContent.replace(/\D/g, ""), 10);
+        } else if (catItem) {
+          name = catItem.getAttribute("data-name");
+          kind = catItem.getAttribute("data-kind");
+          price = parseInt(catItem.getAttribute("data-price"), 10);
+        }
         addToCart(name, kind, price);
         showToast("«" + name + "» в корзине");
         open(cartDrawer);
