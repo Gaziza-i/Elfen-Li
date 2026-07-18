@@ -596,10 +596,15 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .category-modal__swatch { width: 16px; height: 16px; border-radius: 50%; border: 2px solid; flex-shrink: 0; }
 .category-modal__name { font-size: 15px; font-weight: 500; text-transform: uppercase; color: #fff; }
 .category-modal__kind { font-size: 13px; color: #fff; margin-top: -8px; }
-.category-modal__row2 { display: flex; align-items: center; justify-content: space-between; padding-top: 15px; border-top: 1px solid rgba(255,255,255,.25); }
+.category-modal__row2 { display: flex; align-items: center; justify-content: space-between; padding-top: 15px; border-top: 1px solid var(--lime); }
 .category-modal__price { font-family: var(--num); font-size: 25px; letter-spacing: 1px; text-transform: uppercase; color: #fff; }
-.category-modal__buy { display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 16px; font-weight: 500; }
-.category-modal__buy svg { width: 24px; height: 24px; color: var(--lime); }
+.category-modal__buy {
+  display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 16px; font-weight: 500;
+  transition: color .2s ease, transform .2s ease;
+}
+.category-modal__buy svg { width: 24px; height: 24px; color: var(--lime); transition: color .2s ease; }
+.category-modal__buy:hover, .category-modal__buy:focus-visible { color: var(--lime); transform: translateY(-2px); }
+.category-modal__buy:hover svg, .category-modal__buy:focus-visible svg { color: #fff; }
 
 /* ============================================================
    Real images (progressive enhancement)
