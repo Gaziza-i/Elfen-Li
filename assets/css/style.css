@@ -406,7 +406,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   font-family: var(--display); font-size: 28px; font-weight: 500; line-height: normal;
   text-transform: uppercase; color: #fff; margin: 0 auto 0 0;
 }
-.blog-card__date { font-size: 15px; color: #fff; }
+.blog-card__date { font-family: var(--sans); font-weight: 500; font-size: 15px; color: #fff; }
 .blog-card__media {
   position: absolute; z-index: 1; right: 3%; top: 3%; width: 44%; height: 94%;
   border-radius: 22px; overflow: hidden;
