@@ -60,7 +60,7 @@
   --sans: "Euclid Circular A", "Poppins", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --display: "Euclid Circular A", "Poppins", "Manrope", sans-serif;
   --num: "Floreste", "Playfair Display", Georgia, serif;
-  --author: "Gilroy", "Playfair Display", Georgia, serif; /* фолбэк до загрузки реального шрифта */
+  --author: "Gilroy", "Poppins", "Manrope", sans-serif; /* фолбэк до загрузки реального шрифта */
 }
 
 * { box-sizing: border-box; }
@@ -409,14 +409,14 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   position: absolute; z-index: 1; left: 4.8%; top: 7%; width: 44%; height: 86%;
   display: flex; flex-direction: column;
 }
-.blog-card__top { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10%; }
+.blog-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 10%; }
 .blog-card__num { font-size: 15px; font-weight: 500; text-transform: uppercase; color: rgba(255,255,255,.6); flex-shrink: 0; }
-.blog-card__author { font-family: var(--author); font-style: italic; font-size: 16px; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.blog-card__author { font-family: var(--author); font-weight: 600; font-size: 20px; line-height: 1.15; color: #fff; text-align: right; }
 .blog-card__title {
-  font-family: var(--display); font-size: 21px; font-weight: 600; line-height: 1.18;
+  font-family: var(--display); font-size: 28px; font-weight: 600; line-height: 1.18;
   text-transform: uppercase; letter-spacing: .02em; color: #fff; margin: 0 auto 0 0;
 }
-.blog-card__date { font-size: 13px; color: #fff; }
+.blog-card__date { font-size: 15px; color: #fff; }
 .blog-card__media {
   position: absolute; z-index: 1; right: 3%; top: 3%; width: 44%; height: 94%;
   border-radius: 22px; overflow: hidden;
@@ -428,7 +428,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   position: absolute; left: 26%; bottom: -6%; z-index: 2;
   width: 96px; height: 83px; border-radius: 50%;
   background-image: url("../img/blog-card-badge.png"); background-size: 100% 100%; background-repeat: no-repeat;
-  border: 1.5px solid rgba(255,255,255,.7); color: #fff; transform: rotate(-15deg);
+  border: 1.5px solid var(--lime); color: #fff; transform: rotate(-15deg);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   line-height: 1;
 }
