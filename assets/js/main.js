@@ -298,12 +298,6 @@
       var n = c.querySelector(".product-card__name"), o = c.querySelector(".obj");
       if (n && o) tryImg(o, "assets/img/product-" + slug(n.textContent) + ".png");
     });
-    // categories (in order): mirrors, lamps, chairs, tables
-    var catMap = ["cat-mirrors", "cat-lamps", "cat-chairs", "cat-tables"];
-    document.querySelectorAll(".cat-row .cat-card").forEach(function (c, i) {
-      var o = c.querySelector(".obj");
-      if (o && catMap[i]) tryImg(o, "assets/img/" + catMap[i] + ".png");
-    });
     // blog: assets/img/blog-01.png …
     document.querySelectorAll(".blog-grid .blog-card").forEach(function (c, i) {
       var m = c.querySelector(".blog-card__media");
