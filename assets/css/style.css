@@ -343,15 +343,14 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   position: absolute; inset: 0; border-radius: 50%;
   background-image: url("../img/cat-card-badge.png"); background-size: 100% 100%; background-repeat: no-repeat;
   transform: rotate(-23deg);
-}
-.figcat-card__badge-text {
-  position: relative; z-index: 1; display: inline-flex; align-items: baseline; gap: 4px;
-  transform: rotate(-23deg); white-space: nowrap;
+  bottom: -18px; left: 27px; top: 34px;
 }
 .figcat-card__badge-num {
+  position: absolute; top: 42%; transform: translate(20%, 20%) rotate(-23deg);
   font-family: var(--num); font-size: 40px; letter-spacing: 1.6px; text-transform: uppercase; color: #fff;
 }
 .figcat-card__badge-unit {
+  position: absolute; left: 68%; top: 55%; transform: translate(-14%, 60%) rotate(-23deg);
   font-family: var(--sans); font-size: 15px; font-weight: 500; text-transform: uppercase; color: #fff;
 }
 .figcat-card__cta {
