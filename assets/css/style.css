@@ -188,7 +188,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   background: var(--pink); color: #fff;
   border-radius: 40px; padding: 12px 20px; min-width: 200px;
 }
-.search-box svg { width: 18px; height: 18px; flex-shrink: 0; }
+.search-box svg { display: block; width: 18px; height: 18px; flex-shrink: 0; }
 .search-box input {
   border: none; background: transparent; color: #fff; font-family: inherit;
   font-size: 14px; width: 100%; outline: none;
