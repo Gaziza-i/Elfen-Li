@@ -100,7 +100,7 @@
             '<div class="category-modal__media obj" data-img="' + item.img + '">' + lampSVG + '</div>' +
             '<div class="category-modal__info">' +
               '<div class="category-modal__row1">' +
-                '<span class="category-modal__swatch" style="border-color:' + item.color + '"></span>' +
+                '<span class="category-modal__swatch" style="background:' + item.color + '"></span>' +
                 '<span class="category-modal__name">' + item.name + '</span>' +
               '</div>' +
               '<div class="category-modal__kind">' + item.kind + '</div>' +
