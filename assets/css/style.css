@@ -426,7 +426,8 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .blog-card__media svg { width: 50%; height: 50%; }
 .blog-card__time {
   position: absolute; left: 26%; bottom: -6%; z-index: 2;
-  width: 74px; height: 62px; border-radius: 50%;
+  width: 96px; height: 83px; border-radius: 50%;
+  background-image: url("../img/blog-card-badge.png"); background-size: 100% 100%; background-repeat: no-repeat;
   border: 1.5px solid rgba(255,255,255,.7); color: #fff; transform: rotate(-15deg);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   line-height: 1;
