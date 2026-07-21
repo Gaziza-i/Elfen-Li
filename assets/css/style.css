@@ -299,7 +299,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 /* ============================================================
    Categories
    ============================================================ */
-.cat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.cat-row {
+  display: flex; overflow-x: auto; overflow-y: hidden;
+  gap: 26px; padding-bottom: 10px;
+  margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter));
+  -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
+}
 .cat-card {
   background: var(--card); border: 1px solid rgba(255,255,255,.3);
   border-radius: var(--radius-lg); padding: 26px; text-align: center;
@@ -317,7 +322,10 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 
 /* category card — exact shape/layout from Figma (карточки лампы выезд
    категории, 428x517). Shape/badge assets are drop-in, see assets/img/README.md */
-.figcat-card { position: relative; aspect-ratio: 428 / 517; color: #fff; }
+.figcat-card {
+  position: relative; flex: 0 0 385px; width: 385px; height: 465px;
+  scroll-snap-align: start; color: #fff;
+}
 .figcat-card::before {
   content: ""; position: absolute; inset: 0; z-index: 0;
   background-color: #cec2f4;
@@ -749,13 +757,6 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
    ============================================================ */
 @media (max-width: 1200px) {
   .product-row { grid-template-columns: repeat(3, 1fr); }
-  .cat-row {
-    display: flex; overflow-x: auto; overflow-y: hidden;
-    gap: 26px; padding-bottom: 10px;
-    margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter));
-    -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
-  }
-  .figcat-card { flex: 0 0 428px; scroll-snap-align: start; }
   .site-footer__top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 1000px) {
