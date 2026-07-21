@@ -754,7 +754,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
    ============================================================ */
 @media (max-width: 1200px) {
   .product-row { grid-template-columns: repeat(3, 1fr); }
-  .cat-row { grid-template-columns: repeat(2, 1fr); }
+  .cat-row {
+    display: flex; overflow-x: auto; overflow-y: hidden;
+    gap: 26px; padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
+  }
+  .figcat-card { flex: 0 0 260px; scroll-snap-align: start; }
   .site-footer__top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 1000px) {
@@ -790,7 +795,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   .contact-map { height: 320px; }
 }
 @media (max-width: 520px) {
-  .cat-row, .product-row { grid-template-columns: 1fr; }
+  .product-row { grid-template-columns: 1fr; }
   .hero__panel { flex: 1 1 100%; }
   .hero__buy { align-self: center; }
   .blog-card__time { width: 50px; height: 42px; }
