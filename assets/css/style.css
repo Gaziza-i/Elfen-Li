@@ -132,8 +132,8 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .oval-btn .dot svg { width: 18px; height: 18px; }
 
 .buy-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 9px 8px; border-radius: 40px;
+  display: inline-flex; align-items: center; gap: 11px;
+  padding: 9px 8px; border-radius: 40px; margin-left: auto;
   border: none; background: transparent; color: #fff;
   font-family: var(--sans); font-size: 20px; font-weight: 500;
   white-space: nowrap;
