@@ -414,7 +414,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 }
 .product-card__kind { font-size: 15px; color: #fff; margin: 4px 0 16px; text-transform: none; }
 .product-card__foot { display: flex; align-items: center; justify-content: space-between; }
-.product-card__price { font-weight: 800; font-size: 16px; color: #fff; }
+.product-card__price { font-family: var(--num); font-weight: 800; font-size: 28px; color: #fff; }
 
 .load-more { display: flex; justify-content: center; margin-top: 44px; }
 
