@@ -12,6 +12,16 @@
 
   // цвета плашек — визуально оценены по скриншоту Figma (точные hex ассетов недоступны)
   var CATEGORIES = {
+    mirrors: {
+      title: "Напольные зеркала",
+      items: [
+        { name: "Kristin",  kind: "Зеркало напольное", price: 150000, color: "#5b9bd5", img: "assets/img/product-kristin.png" },
+        { name: "Arlene",   kind: "Зеркало напольное", price: 150000, color: "#e85fc0", img: "assets/img/product-arlene.png" },
+        { name: "Colleen",  kind: "Зеркало напольное", price: 150000, color: "#5b9bd5", img: "assets/img/product-colleen.png" },
+        { name: "Coppelia", kind: "Зеркало напольное", price: 150000, color: "#c9c9d1", img: "assets/img/product-coppelia.png" },
+        { name: "Artemide", kind: "Зеркало напольное", price: 150000, color: "#e85fc0", img: "assets/img/product-artemide.png" }
+      ]
+    },
     lamps: {
       title: "Торшеры и лампы",
       items: [
@@ -89,26 +99,17 @@
 
     /* ---------- Category quick-view ---------- */
     function openCategory(key) {
-      // the whole catalog stays hidden site-wide until "Напольные зеркала" is opened
-      if (key === "mirrors") {
+      var data = CATEGORIES[key];
+      // below 1000px: subcategories open in the quick-view modal instead of the inline catalog
+      var isMobile = !window.matchMedia("(min-width: 1001px)").matches;
+      if (!isMobile || !data || !categoryModal) {
+        // desktop (or no quick-view data yet) — reveal & scroll to the inline catalog
+        // (the whole catalog stays hidden site-wide until a category is opened)
         var catalog = document.getElementById("products");
         if (catalog) {
           catalog.classList.add("is-visible");
           catalog.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-        return;
-      }
-      // desktop: scroll to the catalog instead of the mobile quick-view modal (filters stay collapsed)
-      if (window.matchMedia("(min-width: 1001px)").matches) {
-        var productsSection = document.getElementById("products");
-        if (productsSection) productsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        return;
-      }
-      var data = CATEGORIES[key];
-      if (!data || !categoryModal) {
-        // no quick-view content for this category yet — just jump to the catalog
-        var fallback = document.getElementById("products");
-        if (fallback) fallback.scrollIntoView({ behavior: "smooth", block: "start" });
         return;
       }
       var titleEl = categoryModal.querySelector("[data-category-title]");
