@@ -89,6 +89,16 @@
 
     /* ---------- Category quick-view ---------- */
     function openCategory(key) {
+      // the whole catalog stays hidden site-wide until "Напольные зеркала" is opened
+      if (key === "mirrors") {
+        var catalog = document.getElementById("products");
+        if (catalog) {
+          catalog.classList.add("is-visible");
+          catalog.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        if (window.matchMedia("(min-width: 1001px)").matches && fp) fp.classList.add("open");
+        return;
+      }
       // desktop: open the filters panel on the catalog instead of the mobile quick-view modal
       if (window.matchMedia("(min-width: 1001px)").matches) {
         var productsSection = document.getElementById("products");

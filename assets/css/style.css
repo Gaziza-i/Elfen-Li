@@ -80,6 +80,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .serif { font-family: var(--serif); }
 .section { padding: 70px 0; }
+/* catalog stays hidden until opened via the "Напольные зеркала" category arrow */
+#products { display: none; }
+#products.is-visible { display: block; }
 
 /* ---------- Typography ---------- */
 h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
