@@ -101,7 +101,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   width: 64px; height: 64px; border-radius: 50%;
   display: grid; place-items: center;
   border: 1.5px solid var(--lime);
-  color: var(--lime); background: transparent;
+  color: var(--lime); background: rgba(235, 227, 255, .2);
   transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
 }
 .round-btn svg { width: 22px; height: 22px; }
