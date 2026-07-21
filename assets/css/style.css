@@ -114,7 +114,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   display: inline-flex; align-items: center; gap: 22px;
   padding: 12px 12px 12px 34px;
   border: 1.5px solid var(--lime);
-  border-radius: 50px; background: rgba(235, 227, 255, .2); color: var(--lime);
+  border-radius: 50%; background: rgba(235, 227, 255, .2); color: #fff;
   font-size: 15px; font-weight: 600; letter-spacing: .02em;
   transition: background .25s ease, color .25s ease;
 }
