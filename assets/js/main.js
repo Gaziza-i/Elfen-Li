@@ -96,14 +96,12 @@
           catalog.classList.add("is-visible");
           catalog.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-        if (window.matchMedia("(min-width: 1001px)").matches && fp) fp.classList.add("open");
         return;
       }
-      // desktop: open the filters panel on the catalog instead of the mobile quick-view modal
+      // desktop: scroll to the catalog instead of the mobile quick-view modal (filters stay collapsed)
       if (window.matchMedia("(min-width: 1001px)").matches) {
         var productsSection = document.getElementById("products");
         if (productsSection) productsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        if (fp) fp.classList.add("open");
         return;
       }
       var data = CATEGORIES[key];
