@@ -90,7 +90,15 @@
     /* ---------- Category quick-view ---------- */
     function openCategory(key) {
       var data = CATEGORIES[key];
-      if (!data || !categoryModal) return;
+      if (!data) return;
+      // desktop: open the filters panel on the catalog instead of the mobile quick-view modal
+      if (window.matchMedia("(min-width: 1001px)").matches) {
+        var productsSection = document.getElementById("products");
+        if (productsSection) productsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (fp) fp.classList.add("open");
+        return;
+      }
+      if (!categoryModal) return;
       var titleEl = categoryModal.querySelector("[data-category-title]");
       var listEl = categoryModal.querySelector("[data-category-list]");
       if (titleEl) titleEl.textContent = data.title;
