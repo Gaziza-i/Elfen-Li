@@ -415,8 +415,14 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   padding-bottom: 16px; border-bottom: 2px solid var(--lime);
 }
 .product-card__foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-.product-card__price { font-family: var(--num); font-weight: 800; font-size: 28px; color: #fff; white-space: nowrap; }
-.product-card__currency { font-family: var(--sans); font-size: 20px; font-weight: 400; margin-left: 4px; }
+.product-card__price {
+  font-family: var(--num); font-weight: 400; letter-spacing: .04em;
+  font-size: 28px; color: #fff; white-space: nowrap;
+}
+.product-card__currency {
+  font-family: var(--sans); font-size: 20px; font-weight: 400; letter-spacing: normal;
+  margin-left: 4px; vertical-align: top;
+}
 
 .load-more { display: flex; justify-content: center; margin-top: 44px; }
 
