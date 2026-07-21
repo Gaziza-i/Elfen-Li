@@ -114,7 +114,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   display: inline-flex; align-items: center; gap: 22px;
   padding: 12px 12px 12px 34px;
   border: 1.5px solid var(--lime);
-  border-radius: 50px; background: transparent; color: var(--lime);
+  border-radius: 50px; background: rgba(235, 227, 255, .2); color: var(--lime);
   font-size: 15px; font-weight: 600; letter-spacing: .02em;
   transition: background .25s ease, color .25s ease;
 }
@@ -259,7 +259,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   border: 1.5px solid #d9ff5a; background: transparent; transition: border-color .25s ease;
 }
 .hero__buy-blob::before { transform: rotate(-13deg) scaleX(1.28); }
-.hero__buy-blob::after { transform: rotate(-2deg) scaleX(1.2); }
+.hero__buy-blob::after { transform: rotate(-2deg) scaleX(1.2); background: rgba(235, 227, 255, .2); }
 .hero__buy:hover .hero__buy-blob::before,
 .hero__buy:hover .hero__buy-blob::after { border-color: #fff; }
 .hero__buy-content {
