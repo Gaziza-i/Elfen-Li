@@ -117,7 +117,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   display: inline-flex; align-items: center; gap: 22px;
   padding: 12px 12px 12px 34px;
   border: 1.5px solid var(--lime);
-  border-radius: 50%; background: rgba(235, 227, 255, .2); color: #fff;
+  border-radius: 50px; background: rgba(235, 227, 255, .2); color: #fff;
   font-size: 15px; font-weight: 600; letter-spacing: .02em;
   transition: background .25s ease, color .25s ease;
 }
@@ -411,7 +411,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 }
 .product-card__name { font-family: var(--sans); font-size: 28px; font-weight: 500; letter-spacing: .01em; text-transform: uppercase; color: #fff; }
 .product-card__kind {
-  font-size: 15px; color: #fff; margin: 4px 0 16px; text-transform: none;
+  font-size: 15px; color: #fff; margin: 7px 0 16px; text-transform: none;
   padding-bottom: 16px; border-bottom: 2px solid var(--lime);
 }
 .product-card__foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
