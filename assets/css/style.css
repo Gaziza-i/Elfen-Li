@@ -395,7 +395,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   border-radius: var(--radius); padding: 20px; text-align: center;
   transition: transform .25s ease, background .25s ease, border-color .25s ease;
 }
-.product-card:hover {
+.product-card:hover, .product-card.reveal.is-visible:hover {
   transform: translateY(-8px); background: rgba(255,255,255,.12);
   border-color: rgba(255,255,255,.3);
 }
