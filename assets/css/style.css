@@ -134,12 +134,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .buy-tag {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 9px 18px; border-radius: 40px;
-  border: 1.5px solid var(--lime); background: transparent; color: var(--lime);
-  font-size: 13px; font-weight: 600;
-  transition: background .2s ease, color .2s ease, transform .2s ease;
+  border: none; background: transparent; color: var(--lime);
+  font-family: var(--sans); font-size: 20px; font-weight: 500;
+  transition: color .2s ease, transform .2s ease;
 }
 .buy-tag:hover, .buy-tag:focus-visible {
-  background: var(--lime); color: var(--lime-ink); transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .tag-pill {
