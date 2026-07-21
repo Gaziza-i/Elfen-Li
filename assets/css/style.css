@@ -395,8 +395,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 }
 .product-card:hover { transform: translateY(-8px); background: rgba(255,255,255,.12); }
 .product-card__media {
-  position: relative; height: 220px; border-radius: 50% 50% 44% 44%;
-  background: radial-gradient(circle at 50% 42%, rgba(255,255,255,.5), rgba(255,255,255,.12));
+  position: relative; height: 220px;
   display: grid; place-items: center; margin-bottom: 18px;
 }
 .product-card__media .obj svg { max-width: 110px; color: #efe7ff; }
