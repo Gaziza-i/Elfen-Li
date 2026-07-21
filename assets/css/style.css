@@ -391,9 +391,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .product-card {
   background: transparent; border: 1px solid transparent;
   border-radius: var(--radius); padding: 20px; text-align: center;
-  transition: transform .25s ease, background .25s ease;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
 }
-.product-card:hover { transform: translateY(-8px); background: rgba(255,255,255,.12); }
+.product-card:hover {
+  transform: translateY(-8px); background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.3);
+}
 .product-card__media {
   position: relative; height: 220px;
   display: grid; place-items: center; margin-bottom: 18px;
