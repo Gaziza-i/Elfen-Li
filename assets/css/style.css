@@ -123,12 +123,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 }
 .oval-btn .dot {
   width: 44px; height: 44px; border-radius: 50%;
-  background: var(--lime); color: var(--lime-ink);
+  background: var(--lime); color: #fff;
   display: grid; place-items: center; flex-shrink: 0;
   transition: transform .25s ease;
 }
 .oval-btn:hover, .oval-btn:focus-visible { background: var(--lime); color: var(--lime-ink); }
-.oval-btn:hover .dot, .oval-btn:focus-visible .dot { background: var(--lime-ink); color: var(--lime); transform: rotate(45deg); }
+.oval-btn:hover .dot, .oval-btn:focus-visible .dot { background: var(--lime-ink); color: #fff; transform: rotate(45deg); }
 .oval-btn .dot svg { width: 18px; height: 18px; }
 
 .buy-tag {
