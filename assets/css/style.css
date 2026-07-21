@@ -757,6 +757,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   .cat-row {
     display: flex; overflow-x: auto; overflow-y: hidden;
     gap: 26px; padding-bottom: 10px;
+    margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter));
     -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
   }
   .figcat-card { flex: 0 0 260px; scroll-snap-align: start; }
