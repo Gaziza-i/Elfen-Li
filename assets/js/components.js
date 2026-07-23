@@ -34,7 +34,7 @@
       '<a class="logo" href="index.html">Elfen lied</a>' +
       nav(active) +
       '<div class="header-actions">' +
-        '<form class="search-box" data-search><span>' + ICON.search + '</span><input type="text" placeholder="Поиск" aria-label="Поиск" /></form>' +
+        '<form class="search-box" data-search><button type="button" data-search-toggle aria-label="Поиск">' + ICON.search + '</button><input type="text" placeholder="Поиск" aria-label="Поиск" /></form>' +
         '<div class="icon-cluster">' +
           '<button class="badge" type="button" data-open-favorites aria-label="Избранное">' + ICON.heart + '<span data-fav-count>0</span></button>' +
           '<button type="button" data-open-login aria-label="Профиль">' + ICON.user + '</button>' +

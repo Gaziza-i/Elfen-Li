@@ -289,6 +289,22 @@
         var q = f.querySelector("input").value.trim();
         showToast(q ? "Поиск: «" + q + "»" : "Введите запрос для поиска");
       });
+      var toggle = f.querySelector("[data-search-toggle]");
+      var input = f.querySelector("input");
+      if (toggle && input) {
+        toggle.addEventListener("click", function () {
+          // collapsed on mobile (input hidden): first tap just reveals + focuses it
+          if (!f.classList.contains("is-open") && window.matchMedia("(max-width: 760px)").matches) {
+            f.classList.add("is-open");
+            input.focus();
+            return;
+          }
+          f.requestSubmit ? f.requestSubmit() : f.dispatchEvent(new Event("submit", { cancelable: true }));
+        });
+        input.addEventListener("blur", function () {
+          if (!input.value) f.classList.remove("is-open");
+        });
+      }
     });
 
     /* ---------- Checkout ---------- */
