@@ -475,14 +475,24 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 /* ============================================================
    Blog
    ============================================================ */
-.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+.blog-grid {
+  display: flex; gap: 48px;
+  overflow-x: auto; overflow-y: hidden; padding-bottom: 40px;
+  margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter));
+  -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
+  scrollbar-width: thin; scrollbar-color: var(--lime) rgba(255,255,255,.25);
+}
+.blog-grid::-webkit-scrollbar { height: 6px; }
+.blog-grid::-webkit-scrollbar-track { background: rgba(255,255,255,.25); border-radius: 10px; }
+.blog-grid::-webkit-scrollbar-thumb { background: var(--lime); border-radius: 10px; }
 /* card silhouette — exact shape exported from Figma (assets/img/blog-card-shape.svg,
    580x342 viewBox), applied as a mask so the fill color stays controllable via CSS */
 .blog-card {
-  position: relative; aspect-ratio: 580 / 342;
+  position: relative; flex: 0 0 580px; width: 580px; height: 342px;
+  scroll-snap-align: start;
   transition: transform .25s ease;
 }
-.blog-card:hover { transform: translateY(-8px); }
+.blog-card:hover, .blog-card.reveal.is-visible:hover { transform: translateY(-8px); }
 .blog-card::before {
   content: ""; position: absolute; inset: 0; z-index: 0;
   background-color: #cbb6ff;
@@ -810,7 +820,6 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   .main-nav { display: none; }
   .icon-cluster button.burger { display: grid; }
   .search-box { min-width: 0; }
-  .blog-grid { grid-template-columns: 1fr; }
   .filters { grid-template-columns: 1fr; gap: 24px; }
   /* mobile nav */
   .main-nav.open {
