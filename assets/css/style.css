@@ -734,6 +734,15 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .category-modal__row1 { display: flex; align-items: center; gap: 10px; }
 .category-modal__swatch { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #fff; flex-shrink: 0; }
 .category-modal__name { font-size: 15px; font-weight: 500; text-transform: uppercase; color: #fff; }
+.category-modal__fav {
+  margin-left: auto; flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  border: 2px solid var(--pink-strong); display: grid; place-items: center; color: #fff;
+  background: transparent; transition: background .2s ease, transform .2s ease;
+}
+.category-modal__fav svg { width: 14px; height: 14px; }
+.category-modal__fav:hover { transform: scale(1.08); }
+.category-modal__fav.is-active { background: var(--pink-strong); }
+.category-modal__fav.is-active svg { fill: currentColor; }
 .category-modal__kind { font-size: 13px; color: #fff; margin-top: -8px; }
 .category-modal__row2 { display: flex; align-items: center; justify-content: space-between; padding-top: 15px; border-top: 1px solid var(--lime); }
 .category-modal__price { font-family: var(--num); font-size: 25px; letter-spacing: 1px; text-transform: uppercase; color: #fff; }

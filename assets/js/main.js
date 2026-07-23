@@ -100,12 +100,16 @@
 
     /* ---------- Favorites state ---------- */
     var favorites = [];
+    function favButtonName(b) {
+      var card = b.closest(".product-card");
+      if (card) return card.querySelector(".product-card__name").textContent.trim();
+      var item = b.closest(".category-modal__item");
+      if (item) return item.getAttribute("data-name");
+      return null;
+    }
     function syncFavButtons(name, isFav) {
       document.querySelectorAll("[data-add-favorite]").forEach(function (b) {
-        var c = b.closest(".product-card");
-        if (c && c.querySelector(".product-card__name").textContent.trim() === name) {
-          b.classList.toggle("is-active", isFav);
-        }
+        if (favButtonName(b) === name) b.classList.toggle("is-active", isFav);
       });
     }
     function renderFavorites() {
@@ -163,6 +167,7 @@
               '<div class="category-modal__row1">' +
                 '<span class="category-modal__swatch" style="background:' + item.color + '"></span>' +
                 '<span class="category-modal__name">' + item.name + '</span>' +
+                '<button type="button" class="category-modal__fav" data-add-favorite aria-label="В избранное">' + ICON_HEART + '</button>' +
               '</div>' +
               '<div class="category-modal__kind">' + item.kind + '</div>' +
               '<div class="category-modal__row2">' +
@@ -179,6 +184,7 @@
       open(categoryModal);
     }
     var ICON_CART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>';
+    var ICON_HEART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 20.3l-1.45-1.32C5.4 14.24 2 11.16 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C13.09 2.81 14.76 2 16.5 2 19.58 2 22 4.42 22 7.5c0 3.66-3.4 6.74-8.55 11.48L12 20.3z"/></svg>';
 
     /* ---------- Delegated clicks ---------- */
     var currentQV = null;
@@ -191,11 +197,19 @@
       var favBtn = e.target.closest("[data-add-favorite]");
       if (favBtn) {
         var favCard = favBtn.closest(".product-card");
+        var favItem = !favCard && favBtn.closest(".category-modal__item");
         if (favCard) {
-          var favName = favCard.querySelector(".product-card__name").textContent.trim();
-          var favKind = favCard.querySelector(".product-card__kind").textContent.trim();
-          var favPrice = parseInt(favCard.querySelector(".product-card__price").textContent.replace(/\D/g, ""), 10);
-          toggleFavorite(favName, favKind, favPrice);
+          toggleFavorite(
+            favCard.querySelector(".product-card__name").textContent.trim(),
+            favCard.querySelector(".product-card__kind").textContent.trim(),
+            parseInt(favCard.querySelector(".product-card__price").textContent.replace(/\D/g, ""), 10)
+          );
+        } else if (favItem) {
+          toggleFavorite(
+            favItem.getAttribute("data-name"),
+            favItem.getAttribute("data-kind"),
+            parseInt(favItem.getAttribute("data-price"), 10)
+          );
         }
         return;
       }
