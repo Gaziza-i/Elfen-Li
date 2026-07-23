@@ -268,6 +268,17 @@
     var fp = document.getElementById("filters");
     if (ft && fp) ft.addEventListener("click", function () { fp.classList.toggle("open"); });
 
+    /* ---------- Category row prev/next arrows ---------- */
+    var catRow = document.querySelector(".cat-row");
+    document.querySelectorAll("[data-cat-scroll]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        if (!catRow) return;
+        var card = catRow.querySelector(".figcat-card");
+        var step = card ? card.getBoundingClientRect().width + 26 : 300;
+        catRow.scrollBy({ left: step * Number(btn.getAttribute("data-cat-scroll")), behavior: "smooth" });
+      });
+    });
+
     /* ---------- Price range ---------- */
     document.querySelectorAll("[data-range]").forEach(function (wrap) {
       var min = wrap.querySelector("[data-range-min]");

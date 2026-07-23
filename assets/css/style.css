@@ -299,7 +299,19 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 /* ============================================================
    Categories
    ============================================================ */
+.cat-row-wrap { position: relative; }
 .cat-row { display: flex; gap: 26px; }
+.cat-row-nav {
+  display: none; position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 5; width: 48px; height: 48px; border-radius: 50%;
+  align-items: center; justify-content: center;
+  border: 1.5px solid var(--lime); background: rgba(174,151,232,.9); color: var(--lime);
+  cursor: pointer; transition: background .2s ease, color .2s ease;
+}
+.cat-row-nav:hover { background: var(--lime); color: var(--lime-ink); }
+.cat-row-nav svg { width: 22px; height: 22px; }
+.cat-row-nav--prev { left: 4px; }
+.cat-row-nav--next { right: 4px; }
 .cat-card {
   background: var(--card); border: 1px solid rgba(255,255,255,.3);
   border-radius: var(--radius-lg); padding: 26px; text-align: center;
@@ -754,9 +766,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
    ============================================================ */
 @media (max-width: 1730px) {
   .cat-row, .product-row {
-    overflow-x: auto; overflow-y: hidden; padding-bottom: 30px;
-    margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter));
+    overflow-x: auto; overflow-y: hidden; padding-bottom: 40px;
     -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
+  }
+  .cat-row-nav { display: flex; }
+  .product-row {
+    margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter));
   }
 }
 @media (max-width: 1200px) {

@@ -60,7 +60,14 @@
   <section class="section" id="catalog">
     <div class="container">
       <h2 class="section-title reveal">Категории</h2>
-      <div class="cat-row">
+      <div class="cat-row-wrap">
+        <button type="button" class="cat-row-nav cat-row-nav--prev" data-cat-scroll="-1" aria-label="Предыдущие категории">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button type="button" class="cat-row-nav cat-row-nav--next" data-cat-scroll="1" aria-label="Следующие категории">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <div class="cat-row">
         <div class="figcat-card reveal">
           <div class="figcat-card__obj obj" data-img="assets/img/cat-mirrors.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="12" cy="9" rx="6" ry="8"/><path d="M12 17v5M8 22h8"/></svg></div>
           <div class="figcat-card__title">Напольные<br>зеркала</div>
@@ -192,6 +199,7 @@
             <span class="figcat-card__badge-unit">шт</span>
           </div>
           <div class="figcat-card__cta"><a class="round-btn" href="#products" aria-label="Смотреть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
+        </div>
         </div>
       </div>
     </div>
