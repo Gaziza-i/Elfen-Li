@@ -289,6 +289,32 @@
       });
     });
 
+    /* ---------- Blog dots (replace scrollbar) ---------- */
+    var blogGrid = document.querySelector("[data-blog-grid]");
+    var blogDots = document.querySelectorAll("[data-blog-dot]");
+    if (blogGrid && blogDots.length) {
+      var blogCards = blogGrid.querySelectorAll(".blog-card");
+      blogDots.forEach(function (dot) {
+        dot.addEventListener("click", function () {
+          var card = blogCards[Number(dot.getAttribute("data-blog-dot"))];
+          if (card) blogGrid.scrollTo({ left: card.offsetLeft - blogGrid.offsetLeft, behavior: "smooth" });
+        });
+      });
+      var blogScrollTimer;
+      blogGrid.addEventListener("scroll", function () {
+        clearTimeout(blogScrollTimer);
+        blogScrollTimer = setTimeout(function () {
+          var pos = blogGrid.scrollLeft + blogGrid.offsetWidth / 2;
+          var activeIdx = 0;
+          blogCards.forEach(function (card, i) {
+            var cardMid = card.offsetLeft - blogGrid.offsetLeft + card.offsetWidth / 2;
+            if (cardMid <= pos) activeIdx = i;
+          });
+          blogDots.forEach(function (dot, i) { dot.classList.toggle("is-active", i === activeIdx); });
+        }, 80);
+      });
+    }
+
     /* ---------- Price range ---------- */
     document.querySelectorAll("[data-range]").forEach(function (wrap) {
       var min = wrap.querySelector("[data-range-min]");

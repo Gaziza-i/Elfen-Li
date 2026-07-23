@@ -296,8 +296,15 @@
   <!-- ============ BLOG ============ -->
   <section class="section" id="blog">
     <div class="container">
-      <h2 class="section-title reveal">Блог</h2>
-      <div class="blog-grid">
+      <div class="section-title-row reveal">
+        <div class="blog-dots" data-blog-dots>
+          <button type="button" class="blog-dots__dot is-active" data-blog-dot="0" aria-label="Слайд 1"></button>
+          <button type="button" class="blog-dots__dot" data-blog-dot="1" aria-label="Слайд 2"></button>
+          <button type="button" class="blog-dots__dot" data-blog-dot="2" aria-label="Слайд 3"></button>
+        </div>
+        <h2 class="section-title">Блог</h2>
+      </div>
+      <div class="blog-grid" data-blog-grid>
         <article class="blog-card reveal">
           <div class="blog-card__text">
             <div class="blog-card__top"><span class="blog-card__num">01</span><span class="blog-card__author">Laura<br>Busche</span></div>

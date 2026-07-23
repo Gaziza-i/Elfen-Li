@@ -98,6 +98,19 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
   text-align: center; margin-bottom: 50px; color: #fff;
 }
+.section-title-row {
+  display: flex; align-items: center; justify-content: center; gap: 18px;
+  margin-bottom: 50px;
+}
+.section-title-row .section-title { margin-bottom: 0; }
+.blog-dots { display: flex; align-items: center; gap: 8px; }
+.blog-dots__dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,.4); border: none; padding: 0;
+  transition: background .2s ease, transform .2s ease;
+}
+.blog-dots__dot:hover { background: rgba(255,255,255,.7); }
+.blog-dots__dot.is-active { background: var(--lime); transform: scale(1.2); }
 
 /* ---------- Buttons ---------- */
 .round-btn {
@@ -477,14 +490,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
    ============================================================ */
 .blog-grid {
   display: flex; gap: 48px;
-  overflow-x: auto; overflow-y: hidden; padding-bottom: 40px;
+  overflow-x: auto; overflow-y: hidden;
   margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter));
   -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
-  scrollbar-width: thin; scrollbar-color: var(--lime) rgba(255,255,255,.25);
+  scrollbar-width: none;
 }
-.blog-grid::-webkit-scrollbar { height: 6px; }
-.blog-grid::-webkit-scrollbar-track { background: rgba(255,255,255,.25); border-radius: 10px; }
-.blog-grid::-webkit-scrollbar-thumb { background: var(--lime); border-radius: 10px; }
+.blog-grid::-webkit-scrollbar { display: none; }
 /* card silhouette — exact shape exported from Figma (assets/img/blog-card-shape.svg,
    580x342 viewBox), applied as a mask so the fill color stays controllable via CSS */
 .blog-card {
