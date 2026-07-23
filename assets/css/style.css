@@ -475,7 +475,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 /* ============================================================
    Blog
    ============================================================ */
-.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
 /* card silhouette — exact shape exported from Figma (assets/img/blog-card-shape.svg,
    580x342 viewBox), applied as a mask so the fill color stays controllable via CSS */
 .blog-card {
