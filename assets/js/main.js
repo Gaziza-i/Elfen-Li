@@ -54,10 +54,11 @@
     var overlay = document.querySelector("[data-overlay]");
     var quickview = document.getElementById("quickview");
     var cartDrawer = document.getElementById("cart");
+    var favoritesDrawer = document.getElementById("favorites");
     var loginModal = document.getElementById("login");
     var registerModal = document.getElementById("register");
     var categoryModal = document.getElementById("categoryModal");
-    var allOverlayed = [quickview, cartDrawer, loginModal, registerModal, categoryModal];
+    var allOverlayed = [quickview, cartDrawer, favoritesDrawer, loginModal, registerModal, categoryModal];
     function open(el) {
       allOverlayed.forEach(function (m) { if (m && m !== el) m.classList.remove("open"); });
       if (overlay) overlay.classList.add("open");
@@ -96,6 +97,45 @@
     }
     function addToCart(name, kind, price) { cart.push({ name: name, kind: kind, price: price }); renderCart(); }
     renderCart();
+
+    /* ---------- Favorites state ---------- */
+    var favorites = [];
+    function syncFavButtons(name, isFav) {
+      document.querySelectorAll("[data-add-favorite]").forEach(function (b) {
+        var c = b.closest(".product-card");
+        if (c && c.querySelector(".product-card__name").textContent.trim() === name) {
+          b.classList.toggle("is-active", isFav);
+        }
+      });
+    }
+    function renderFavorites() {
+      var list = document.querySelector("[data-favorites-list]");
+      var count = document.querySelectorAll("[data-fav-count]");
+      count.forEach(function (c) { c.textContent = favorites.length; });
+      if (!list) return;
+      if (!favorites.length) { list.innerHTML = '<div class="cart-empty">Список избранного пуст</div>'; return; }
+      list.innerHTML = favorites.map(function (i, idx) {
+        return '<div class="cart-item">' +
+          '<div class="cart-item__media">' + mirror + '</div>' +
+          '<div><div class="cart-item__name">' + i.name + '</div><div class="cart-item__kind">' + i.kind + '</div></div>' +
+          '<div class="cart-item__price"><b>' + money(i.price) + '</b></div>' +
+          '<button class="cart-item__remove" data-remove-favorite="' + idx + '" aria-label="Удалить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+        '</div>';
+      }).join("");
+    }
+    function toggleFavorite(name, kind, price) {
+      var idx = favorites.findIndex(function (f) { return f.name === name; });
+      if (idx >= 0) {
+        favorites.splice(idx, 1);
+        syncFavButtons(name, false);
+      } else {
+        favorites.push({ name: name, kind: kind, price: price });
+        syncFavButtons(name, true);
+        showToast("«" + name + "» в избранном");
+      }
+      renderFavorites();
+    }
+    renderFavorites();
 
     /* ---------- Category quick-view ---------- */
     function openCategory(key) {
@@ -145,6 +185,29 @@
     document.body.addEventListener("click", function (e) {
       // open cart
       if (e.target.closest("[data-open-cart]")) { open(cartDrawer); return; }
+      // open favorites
+      if (e.target.closest("[data-open-favorites]")) { open(favoritesDrawer); return; }
+      // toggle favorite from product card
+      var favBtn = e.target.closest("[data-add-favorite]");
+      if (favBtn) {
+        var favCard = favBtn.closest(".product-card");
+        if (favCard) {
+          var favName = favCard.querySelector(".product-card__name").textContent.trim();
+          var favKind = favCard.querySelector(".product-card__kind").textContent.trim();
+          var favPrice = parseInt(favCard.querySelector(".product-card__price").textContent.replace(/\D/g, ""), 10);
+          toggleFavorite(favName, favKind, favPrice);
+        }
+        return;
+      }
+      // remove from favorites
+      var rmFav = e.target.closest("[data-remove-favorite]");
+      if (rmFav) {
+        var rmName = favorites[+rmFav.getAttribute("data-remove-favorite")].name;
+        favorites.splice(+rmFav.getAttribute("data-remove-favorite"), 1);
+        syncFavButtons(rmName, false);
+        renderFavorites();
+        return;
+      }
       // open login
       var openLogin = e.target.closest("[data-open-login]");
       if (openLogin) { e.preventDefault(); open(loginModal); return; }

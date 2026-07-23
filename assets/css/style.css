@@ -447,6 +447,17 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
 }
+.product-card__fav {
+  position: absolute; top: 8px; left: 46px; z-index: 1;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,.25); color: #fff;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.product-card__fav svg { width: 18px; height: 18px; }
+.product-card__fav:hover { background: rgba(255,255,255,.4); transform: scale(1.08); }
+.product-card__fav.is-active { background: var(--pink-strong); color: #fff; }
+.product-card__fav.is-active svg { fill: currentColor; }
 .product-card__name { font-family: var(--sans); font-size: 28px; font-weight: 500; letter-spacing: .01em; text-transform: uppercase; color: #fff; }
 .product-card__kind {
   font-size: 15px; color: #fff; margin: 7px 0 16px; text-transform: none;

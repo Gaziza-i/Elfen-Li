@@ -36,7 +36,7 @@
       '<div class="header-actions">' +
         '<form class="search-box" data-search><span>' + ICON.search + '</span><input type="text" placeholder="Поиск" aria-label="Поиск" /></form>' +
         '<div class="icon-cluster">' +
-          '<a href="index.html#catalog" aria-label="Избранное">' + ICON.heart + '</a>' +
+          '<button class="badge" type="button" data-open-favorites aria-label="Избранное">' + ICON.heart + '<span data-fav-count>0</span></button>' +
           '<button type="button" data-open-login aria-label="Профиль">' + ICON.user + '</button>' +
           '<button class="badge" data-open-cart aria-label="Корзина">' + ICON.bag + '<span data-cart-count>0</span></button>' +
           '<button class="burger" id="burger" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
@@ -113,6 +113,13 @@
         '<div class="field"><input type="tel" placeholder="Телефон" required /></div>' +
         '<button type="submit" class="btn-solid">Заказать</button>' +
       '</form>' +
+    '</aside>' +
+    // favorites drawer
+    '<aside class="drawer" id="favorites" aria-label="Избранное">' +
+      '<div class="drawer__head"><h3>Избранное</h3>' +
+        '<button class="modal__close" data-close aria-label="закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+      '</div>' +
+      '<div class="drawer__body" data-favorites-list></div>' +
     '</aside>' +
     // login modal — figma node 2576:4668 (mobile "окно")
     '<div class="login-modal" id="login" role="dialog" aria-modal="true">' +
