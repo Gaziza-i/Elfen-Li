@@ -268,6 +268,16 @@
     var fp = document.getElementById("filters");
     if (ft && fp) ft.addEventListener("click", function () { fp.classList.toggle("open"); });
 
+    /* ---------- Hero: reveal other slides ---------- */
+    var slidesToggle = document.querySelector("[data-toggle-slides]");
+    var heroRow = document.querySelector(".hero__row");
+    if (slidesToggle && heroRow) {
+      slidesToggle.addEventListener("click", function () {
+        var open = heroRow.classList.toggle("is-open");
+        slidesToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+
     /* ---------- Category row prev/next arrows ---------- */
     var catRow = document.querySelector(".cat-row");
     document.querySelectorAll("[data-cat-scroll]").forEach(function (btn) {

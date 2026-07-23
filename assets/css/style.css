@@ -245,7 +245,17 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .hero__object { flex: 1; display: grid; place-items: center; position: relative; z-index: 1; padding: 10px 0; }
 .hero__object svg { width: 230px; height: 230px; color: #d9cdf3; filter: drop-shadow(0 30px 40px rgba(44,30,80,.3)); }
 
-.hero__info { position: relative; z-index: 2; max-width: 340px; }
+.hero__info-row { position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.hero__slides-toggle {
+  flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1.5px solid var(--lime); color: var(--lime); background: rgba(235, 227, 255, .2);
+  transition: transform .25s ease, background .25s ease, color .25s ease;
+}
+.hero__slides-toggle svg { width: 22px; height: 22px; transition: transform .25s ease; }
+.hero__slides-toggle:hover, .hero__slides-toggle:focus-visible { background: var(--lime); color: var(--lime-ink); }
+.hero__slides-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.hero__info { position: relative; max-width: 340px; }
 .hero__info h1 { font-family: var(--display); font-size: 28px; font-weight: 500; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
 .hero__info p { font-size: 18px; line-height: 1.35; color: #fff; margin: 0; }
 .hero__divider { height: 1px; background: rgba(255,255,255,.35); margin: 20px 0 18px; max-width: 274px; }
@@ -273,12 +283,15 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 }
 .hero__buy-content svg { width: 22px; height: 22px; }
 
-/* side style panels: rounded, floating, exact figma colors */
+/* side style panels: rounded, floating, exact figma colors —
+   hidden by default, revealed only via .hero__slides-toggle */
 .hero__panel {
+  display: none;
   flex: 0 0 clamp(220px, 18vw, 300px);
   position: relative; overflow: hidden; border-radius: 40px;
   padding: 26px 20px 34px;
 }
+.hero__row.is-open .hero__panel { display: block; }
 .hero__panel--pink { background: #fa8fef; }
 .hero__panel--blue { background: #aecfff; }
 /* figma: object is vertically centered in the panel, independent of the
@@ -792,14 +805,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
     flex: 1 1 100%; padding: 30px 0; min-height: 460px;
     justify-content: flex-start; gap: 24px;
   }
-  .hero__object { min-height: 340px; order: 2; }
-  .hero__badge { order: 1; }
-  .hero__info { display: contents; }
-  .hero__info h1 { order: 3; }
-  .hero__buy { position: relative; order: 4; align-self: flex-start; margin-top: 4px; }
-  .hero__info p { order: 5; }
-  .hero__divider { order: 6; }
-  .hero__price { order: 7; }
+  .hero__object { min-height: 340px; }
   .hero__panel { flex: 1 1 calc(50% - 11px); min-height: 320px; }
   .main-nav { display: none; }
   .icon-cluster button.burger { display: grid; }
