@@ -524,7 +524,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
 }
 .blog-card__text {
-  position: absolute; z-index: 1; left: 4.8%; top: 7%; width: 37%; height: 86%;
+  position: absolute; z-index: 1; left: 4.8%; top: 7%; width: 37%; height: 74%;
   display: flex; flex-direction: column; justify-content: space-between;
 }
 .blog-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
