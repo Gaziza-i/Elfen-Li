@@ -821,6 +821,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   .icon-cluster button.burger { display: grid; }
   .search-box { min-width: 0; }
   .filters { grid-template-columns: 1fr; gap: 24px; }
+  .contact-window { flex-direction: column; }
   /* mobile nav */
   .main-nav.open {
     display: block; position: absolute; top: 84px; left: var(--gutter); right: var(--gutter);
