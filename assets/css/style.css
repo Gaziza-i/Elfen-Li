@@ -793,7 +793,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
     justify-content: flex-start; gap: 24px;
   }
   .hero__object { min-height: 340px; }
-  .hero__buy { position: static; align-self: flex-end; margin-top: 4px; }
+  .hero__buy { position: relative; align-self: flex-end; margin-top: 4px; }
   .hero__panel { flex: 1 1 calc(50% - 11px); min-height: 320px; }
   .main-nav { display: none; }
   .icon-cluster button.burger { display: grid; }
