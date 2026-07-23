@@ -792,8 +792,14 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
     flex: 1 1 100%; padding: 30px 0; min-height: 460px;
     justify-content: flex-start; gap: 24px;
   }
-  .hero__object { min-height: 340px; }
-  .hero__buy { position: relative; align-self: flex-end; margin-top: 4px; }
+  .hero__object { min-height: 340px; order: 2; }
+  .hero__badge { order: 1; }
+  .hero__info { display: contents; }
+  .hero__info h1 { order: 3; }
+  .hero__buy { position: relative; order: 4; align-self: flex-start; margin-top: 4px; }
+  .hero__info p { order: 5; }
+  .hero__divider { order: 6; }
+  .hero__price { order: 7; }
   .hero__panel { flex: 1 1 calc(50% - 11px); min-height: 320px; }
   .main-nav { display: none; }
   .icon-cluster button.burger { display: grid; }
