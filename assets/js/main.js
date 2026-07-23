@@ -337,6 +337,52 @@
     });
     window.__elfenTryImg = tryImg; // reused by quick-view
 
+    /* ---------- Hero slider (slide 2/3 swap into "товар дня") ---------- */
+    var heroMain = document.querySelector(".hero__main");
+    var heroPanels = document.querySelectorAll(".hero__panel");
+    if (heroMain && heroPanels.length) {
+      var HERO_SLIDES = [
+        { num: "01", img: "assets/img/hero-santa-trinita.png",
+          icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2c-2 3-3 6 0 9 3-3 2-6 0-9zM12 11c-3-1-6 0-7 3 3 1 6 0 7-3zM12 11c3-1 6 0 7 3-3 1-6 0-7-3zM12 11v9M8 22h8"/></svg>' },
+        { num: "02", img: "assets/img/hero-style-02.png",
+          icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M7 3v9M17 3v9M6 12h12l-1 4H7l-1-4zM8 16v5M16 16v5"/></svg>' },
+        { num: "03", img: "assets/img/hero-style-03.png",
+          icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M3 8h18M5 8v12M19 8v12M3 8l3-4h12l3 4"/></svg>' }
+      ];
+      var heroActive = 0;
+      function renderHero() {
+        var mainObj = heroMain.querySelector(".hero__object");
+        var mainSlide = HERO_SLIDES[heroActive];
+        mainObj.classList.remove("has-img");
+        mainObj.style.backgroundImage = "";
+        mainObj.innerHTML = mainSlide.icon;
+        mainObj.setAttribute("data-img", mainSlide.img);
+        tryImg(mainObj, mainSlide.img);
+
+        var others = [0, 1, 2].filter(function (i) { return i !== heroActive; });
+        heroPanels.forEach(function (panel, i) {
+          var idx = others[i];
+          var slide = HERO_SLIDES[idx];
+          var obj = panel.querySelector(".obj");
+          obj.classList.remove("has-img");
+          obj.style.backgroundImage = "";
+          obj.innerHTML = slide.icon;
+          obj.setAttribute("data-img", slide.img);
+          tryImg(obj, slide.img);
+          panel.querySelector(".hero__panel-foot .num").textContent = slide.num;
+          panel.setAttribute("data-slide-index", idx);
+        });
+      }
+      heroPanels.forEach(function (panel) {
+        panel.style.cursor = "pointer";
+        panel.addEventListener("click", function () {
+          heroActive = Number(panel.getAttribute("data-slide-index"));
+          renderHero();
+        });
+      });
+      renderHero();
+    }
+
     /* ---------- Reveal ---------- */
     var io;
     function observe(el) { if (io) io.observe(el); }
