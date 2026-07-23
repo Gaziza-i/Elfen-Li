@@ -768,6 +768,14 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   .cat-row, .product-row {
     overflow-x: auto; overflow-y: hidden; padding-bottom: 40px;
     -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
+    scrollbar-width: thin; scrollbar-color: var(--lime) rgba(255,255,255,.25);
+  }
+  .cat-row::-webkit-scrollbar, .product-row::-webkit-scrollbar { height: 6px; }
+  .cat-row::-webkit-scrollbar-track, .product-row::-webkit-scrollbar-track {
+    background: rgba(255,255,255,.25); border-radius: 10px;
+  }
+  .cat-row::-webkit-scrollbar-thumb, .product-row::-webkit-scrollbar-thumb {
+    background: var(--lime); border-radius: 10px;
   }
   .cat-row-nav { display: flex; }
   .product-row {
