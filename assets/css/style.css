@@ -503,7 +503,6 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .blog-grid {
   display: flex; gap: 48px;
   overflow-x: auto; overflow-y: hidden;
-  margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter));
   -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
   scrollbar-width: none;
 }
@@ -513,7 +512,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 .blog-card {
   position: relative; flex: 0 0 580px; width: 580px; height: 342px;
   scroll-snap-align: start;
-  transition: transform .25s ease;
+  margin-bottom: 40px;
 }
 .blog-card:hover, .blog-card.reveal.is-visible:hover { transform: translateY(-8px); }
 .blog-card::before {
