@@ -875,7 +875,6 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
 @media (max-width: 520px) {
   .hero__panel { flex: 1 1 100%; }
   .hero__buy { align-self: center; }
-  .blog-card__time { width: 50px; height: 42px; }
   .site-footer__top { grid-template-columns: 1fr; gap: 26px; }
   .section-title { margin-bottom: 34px; }
   .header-actions .icon-cluster .badge { display: none; }
