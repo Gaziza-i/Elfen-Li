@@ -306,6 +306,10 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; }
   padding: 26px 20px 34px;
 }
 .hero__row.is-open .hero__panel { display: block; }
+@media (min-width: 1001px) {
+  .hero__slides-toggle { display: none; }
+  .hero__panel { display: block; }
+}
 .hero__panel--pink { background: #fa8fef; }
 .hero__panel--blue { background: #aecfff; }
 /* figma: object is vertically centered in the panel, independent of the
