@@ -1,10 +1,8 @@
-# Elfen lied
+# Elfen Lied — дизайнерский магазин
 
-Вёрстка сайта магазина дизайнерского декора **Elfen lied** по макету Figma
-([«Тестовое (Copy)»](https://www.figma.com/design/TpfcHdPrw3ynidfAwBhx8T/)).
+**[🌐 Открыть сайт](https://gaziza-i.github.io/Elfen-Li/index.html#products)**
 
-Статический адаптивный лендинг на чистом HTML, CSS и JavaScript — без сборщиков и
-зависимостей. Открывается двойным кликом по `index.html`.
+Вёрстка интернет-магазина дизайнерского декора **Elfen Lied** по макету Figma — без фреймворков и зависимостей.
 
 ## Секции страницы
 
